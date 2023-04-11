@@ -253,7 +253,7 @@ export const Text = styled.p`
   border-bottom: ${(props) => props.borderBottom};
   opacity: ${(props) => props.opacity};
   letter-spacing: ${(props) => props.letterSpacing};
-  font-family: ${(props) => props.fontFamily};
+  font-family: ${(props) => props.fontFamily || `Pretendard`};
 
   ${(props) =>
     props.D2
@@ -524,6 +524,33 @@ export const Btn = styled.button`
 export const Box = styled.div`
   width: calc(100% / 2 - 120px);
   background: ${(props) => props.gbColor || `#ecf2f6`};
+  font-family: "Pretendard";
+  margin-bottom: 46px;
+  padding: 60px 45px;
+  border-radius: 30px;
+
+  & > .contentText {
+    text-align: ${(props) => props.textAlign || `left`};
+    color: ${(props) => props.color || `#fff`};
+    font-size: ${(props) => props.fontSize || `20px`};
+    font-weight: ${(props) => props.fontWeight || `600`};
+    margin-bottom: ${(props) => props.marginBottom || `10px`};
+  }
+  & > .contentSub {
+    text-align: ${(props) => props.textAlign || `left`};
+    color: ${(props) => props.color || `#999fae`};
+    font-size: ${(props) => props.fontSize || `24px`};
+   /*  margin-bottom: ${(props) => props.marginBottom || `14px`}; */
+  }
+
+  :hover > img {
+    transform: scale(1.2);
+  }
+`;
+export const Box1 = styled.div`
+  width: calc(100% / 2 - 120px);
+  background: ${(props) => props.gbColor || `#ecf2f6`};
+  font-family: "Pretendard";
   margin-bottom: 46px;
   padding: 60px 45px;
   border-radius: 30px;

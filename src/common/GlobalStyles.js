@@ -1,49 +1,6 @@
 import { createGlobalStyle, css } from "styled-components";
 
 const fontStyle = css`
-  /* latin-ext */
-  @font-face {
-    font-family: "DM Sans";
-    font-style: normal;
-    font-weight: 400;
-    src: url(https://fonts.gstatic.com/s/dmsans/v11/rP2Hp2ywxg089UriCZ2IHSeH.woff2) format("woff2");
-  }
-  /* latin */
-  @font-face {
-    font-family: "DM Sans";
-    font-style: normal;
-    font-weight: 400;
-    src: url(https://fonts.gstatic.com/s/dmsans/v11/rP2Hp2ywxg089UriCZOIHQ.woff2) format("woff2");
-  }
-  /* latin-ext */
-  @font-face {
-    font-family: "DM Sans";
-    font-style: normal;
-    font-weight: 500;
-    src: url(https://fonts.gstatic.com/s/dmsans/v11/rP2Cp2ywxg089UriAWCrCBamC2QX.woff2) format("woff2");
-  }
-  /* latin */
-  @font-face {
-    font-family: "DM Sans";
-    font-style: normal;
-    font-weight: 500;
-    src: url(https://fonts.gstatic.com/s/dmsans/v11/rP2Cp2ywxg089UriAWCrCBimCw.woff2) format("woff2");
-  }
-  /* latin-ext */
-  @font-face {
-    font-family: "DM Sans";
-    font-style: normal;
-    font-weight: 700;
-    src: url(https://fonts.gstatic.com/s/dmsans/v11/rP2Cp2ywxg089UriASitCBamC2QX.woff2) format("woff2");
-  }
-  /* latin */
-  @font-face {
-    font-family: "DM Sans";
-    font-style: normal;
-    font-weight: 700;
-    src: url(https://fonts.gstatic.com/s/dmsans/v11/rP2Cp2ywxg089UriASitCBimCw.woff2) format("woff2");
-  }
-
   @font-face {
     font-family: "Pretendard";
     src: url("https://cdn.jsdelivr.net/gh/Project-Noonnu/noonfonts_2107@1.1/Pretendard-Regular.woff") format("woff");

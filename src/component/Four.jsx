@@ -3,36 +3,36 @@ import { Box, Image, LayOut, SectionTitle, SubTitle, Text, Title, Wrapper } from
 
 const contentItem = [
   {
-    title: "HTML",
+    title: "HTML/CSS",
     img: "html2.png",
   },
   {
-    title: "CSS/SCSS",
+    title: "SCSS",
     img: "scss.png",
   },
   {
-    title: "Js/jQuery ",
-    img: "js.gif",
+    title: "Js ",
+    img: "js.png",
   },
   {
     title: "React",
-    img: "react.gif",
+    img: "react.png",
   },
   {
     title: "vue3",
-    img: "vue3.gif",
+    img: "vue3.png",
   },
   {
     title: "node",
-    img: "node.gif",
+    img: "node.png",
   },
   {
     title: "sqlite",
-    img: "sqlite.gif",
+    img: "sqlite.png",
   },
   {
     title: "figma",
-    img: "figma.gif",
+    img: "figma.png",
   },
 ];
 
@@ -40,11 +40,9 @@ const Four = () => {
   return (
     <Wrapper bgColor={`#27272e`}>
       <LayOut>
-        <Title>Nulla facilisi</Title>
+        <Title>npm ls</Title>
         <SectionTitle color={`#fff`}>
-          We’ve built solutions
-          <br />
-          for...
+          Skills
         </SectionTitle>
         <Slide className="width100">
           <SubTitle opacity={`0.6`} color={`#fff`}>
@@ -56,11 +54,11 @@ const Four = () => {
         <Wrapper dr={`row`} ju={`space-between`}>
           {contentItem.map((data, idx) => {
             return (
-              <Wrapper width={`auto`}>
-                <Wrapper width={`40px`}>
+              <Wrapper width={`calc(100%/4 - 20px)`} padding={`30px 10px`}>
+                <Wrapper width={`60px`} margin={`20px`}>
                   <Image src={`/images/icon/${data.img}`} />
                 </Wrapper>
-                <Text>{data.title}</Text>
+                <Text color={`#fff`} fontSize={`20px`}>{data.title}</Text>
               </Wrapper>
             );
           })}

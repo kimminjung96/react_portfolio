@@ -31,6 +31,7 @@ const MainWrapper = styled(Wrapper)`
 `;
 const Slogan = styled.h2`
   width: auto;
+  font-family: "Pretendard";
   font-size: 80px;
   line-height: 1.5;
   letter-spacing: -1.5px;
@@ -50,10 +51,14 @@ const Slogan = styled.h2`
   }
 `;
 const SubSlogan = styled(Slogan)`
+  font-family: "PretendardLight";
   font-size: 58px;
   line-height: 1.4;
-  letter-spacing: -2px;
   margin-bottom: 60px;
+  &>span{
+    font-size:50px;
+    letter-spacing:-5px;
+  }
 
   @media (max-width: 800px) {
     font-size: 24px;
@@ -78,7 +83,7 @@ const MainSection = () => {
                 </Text>
                 <Text display={`inline-block`}>김민정</Text>
               </Slogan>
-              <SubSlogan>start준비가 된 frontend</SubSlogan>
+              <SubSlogan>start<span> 준비가 된 </span>frontend</SubSlogan>
               <Wrapper dr={`row`} ju={`flex-start`}>
                 <Btn bgColor={`#5956e9`} color={`#fff`} margin={`0 10px`}>
                   <Text Pret={true}>이력서 다운로드</Text>

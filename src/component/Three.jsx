@@ -18,8 +18,8 @@ const Three = () => {
   return (
     <Wrapper>
       <LayOut>
-        <Title>Featured Case study</Title>
-        <SectionTitle>Photography & drawing</SectionTitle>
+        <Title>npm publish</Title>
+        <SectionTitle>Projects</SectionTitle>
         <Slide className="width100"></Slide>
         <Wrapper dr={`row`} ju={`space-between`} margin={`30px 0 0`}>
           {contentItem.map((data, idx) => {
