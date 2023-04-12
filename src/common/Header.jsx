@@ -1,43 +1,58 @@
 import styled from "styled-components";
-import { Btn, Image, LayOut, Text, Wrapper } from "./style";
+import { Image, LayOut, Wrapper } from "./style";
+import { useEffect, useMemo, useState } from "react";
+import Lottie from "./Lottie";
 
 const HeadLink = styled.p`
   postion: fixed;
   border: none;
-  font-size: 30px;
+  font-size: 20px;
   padding: 10px 16px;
   color: #333;
   transition: all 0.9s, color 0.3;
   background: ${(props) => props.bgColor || `transparent`};
 
   &:hover {
-    color: #fff;
-    box-shadow: 200px 0 0 0 rgba(0, 0, 0, 0.25) inset,
-      -200px 0 0 0 rgba(0, 0, 0, 0.25) inset;
+    color: #5956e9;
   }
 `;
 
+const HeaerWrap = styled(Wrapper)`
+  height: 44px;
+  position: sticky;
+  top: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 999;
+`;
+
 const Header = () => {
+  useEffect(() => {
+    window.addEventListener("scroll", function () {
+      let winSct = window.scrollY;
+      const header = document.querySelector(".header");
+      if (winSct >= 1) {
+        header.classList.add("active");
+      } else {
+        header.classList.remove("active");
+      }
+    });
+  }, []);
+
   return (
-    <>
-      <LayOut>
-        <Wrapper
-          dr={`row`}
-          ju={`space-between`}
-          padding={`30px 0`}
-          positiion={`fixed`}
-        >
-          <Image width={`auto`} src="" alt="로고" />
-          <Wrapper dr={`row`} width={`auto`}>
-            <HeadLink>HOME</HeadLink>
-            <HeadLink>ABOUT</HeadLink>
-            <HeadLink>SKILLS</HeadLink>
-            <HeadLink>PROJECT</HeadLink>
-            <HeadLink>CONTACT</HeadLink>
-          </Wrapper>
+    <HeaerWrap className="header">
+      <LayOut dr={`row`} ju={`space-between`} padding={`0`}>
+        <Lottie />
+        <Wrapper dr={`row`} width={`auto`}>
+          <HeadLink>HOME</HeadLink>
+          <HeadLink>ABOUT</HeadLink>
+          <HeadLink>SKILLS</HeadLink>
+          <HeadLink>PROJECT</HeadLink>
+          <HeadLink>CONTACT</HeadLink>
         </Wrapper>
       </LayOut>
-    </>
+    </HeaerWrap>
   );
 };
 

@@ -523,24 +523,33 @@ export const Btn = styled.button`
 
 export const Box = styled.div`
   width: calc(100% / 2 - 120px);
-  background: ${(props) => props.gbColor || `#ecf2f6`};
+  height: 500px;
+  background: ${(props) => props.bgColor || `#ecf2f6`};
   font-family: "Pretendard";
   margin-bottom: 46px;
   padding: 60px 45px;
   border-radius: 30px;
 
-  & > .contentText {
+  & .contentText {
+    width: 100%;
     text-align: ${(props) => props.textAlign || `left`};
-    color: ${(props) => props.color || `#fff`};
+    color: ${(props) => props.color || `#27272e`};
     font-size: ${(props) => props.fontSize || `20px`};
     font-weight: ${(props) => props.fontWeight || `600`};
     margin-bottom: ${(props) => props.marginBottom || `10px`};
   }
-  & > .contentSub {
+  & .contentSub {
+    width: 100%;
     text-align: ${(props) => props.textAlign || `left`};
-    color: ${(props) => props.color || `#999fae`};
+    color: ${(props) => props.color || `#7a88ab`};
     font-size: ${(props) => props.fontSize || `24px`};
-   /*  margin-bottom: ${(props) => props.marginBottom || `14px`}; */
+  }
+  & .contentDate {
+    width: 100%;
+    text-align: ${(props) => props.textAlign || `left`};
+    color: ${(props) => props.color || `#7a88ab`};
+    font-size: ${(props) => props.fontSize || `18px`};
+    margin-bottom: ${(props) => props.marginBottom || `4px`};
   }
 
   :hover > img {
