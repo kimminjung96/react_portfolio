@@ -2,6 +2,11 @@ import { Btn, Image, LayOut, Text, Title, Wrapper } from "../common/style";
 import useWidth from "../common/useWidth";
 import styled from "styled-components";
 
+/* 
+react-awesome-reveal
+
+*/
+
 const MainWrapper = styled(Wrapper)`
   position: relative;
 
@@ -55,9 +60,9 @@ const SubSlogan = styled(Slogan)`
   font-size: 58px;
   line-height: 1.4;
   margin-bottom: 60px;
-  &>span{
-    font-size:50px;
-    letter-spacing:-5px;
+  & > span {
+    font-size: 50px;
+    letter-spacing: -5px;
   }
 
   @media (max-width: 800px) {
@@ -69,21 +74,37 @@ const MainSection = () => {
   const width = useWidth();
   return (
     <>
-      <MainWrapper>
+      <MainWrapper id="HOME">
         <LayOut>
           <Wrapper dr={`row`} ju={width < 700 ? `center` : "space-between"}>
-            <Wrapper al={width < 700 ? `center` : `left`} width={width < 700 ? `100%` : `auto`}>
+            <Wrapper
+              al={width < 700 ? `center` : `left`}
+              width={width < 700 ? `100%` : `auto`}
+            >
               <Title fontWeight={`700`}>npm i minjung</Title>
               <Slogan>
-                <Text D2={true} display={`inline-block`} fontSize={`96px`} className="font96">
+                <Text
+                  D2={true}
+                  display={`inline-block`}
+                  fontSize={`96px`}
+                  className="font96"
+                >
                   Npm
                 </Text>
-                <Text D2={true} display={`inline-block`} margin={`0 20px`} fontSize={`96px`} className="font96">
+                <Text
+                  D2={true}
+                  display={`inline-block`}
+                  margin={`0 20px`}
+                  fontSize={`96px`}
+                  className="font96"
+                >
                   run
                 </Text>
                 <Text display={`inline-block`}>김민정</Text>
               </Slogan>
-              <SubSlogan>start<span> 준비가 된 </span>frontend</SubSlogan>
+              <SubSlogan>
+                start<span> 준비가 된 </span>frontend
+              </SubSlogan>
               <Wrapper dr={`row`} ju={`flex-start`}>
                 <Btn bgColor={`#5956e9`} color={`#fff`} margin={`0 10px`}>
                   <Text Pret={true}>이력서 다운로드</Text>
@@ -93,8 +114,19 @@ const MainSection = () => {
                 </Btn>
               </Wrapper>
             </Wrapper>
-            <Wrapper width={width < 700 ? `50%` : `40%`} height={`700px`} overflow={`hidden`} bgColor={`linear-gradient(180deg, pink, white)`} radius={`48% 48% 0 0`}>
-              <Image src="/images/my/min.png" alt="나의 프로필 사진" transform={`rotateY(180deg)`} objPosition={`60px 540px`} />
+            <Wrapper
+              width={width < 700 ? `50%` : `40%`}
+              height={`700px`}
+              overflow={`hidden`}
+              bgColor={`linear-gradient(180deg, pink, white)`}
+              radius={`48% 48% 0 0`}
+            >
+              <Image
+                src="/images/my/min.png"
+                alt="나의 프로필 사진"
+                transform={`rotateY(180deg)`}
+                objPosition={`60px 540px`}
+              />
             </Wrapper>
           </Wrapper>
         </LayOut>

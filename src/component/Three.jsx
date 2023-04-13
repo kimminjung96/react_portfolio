@@ -1,5 +1,15 @@
-import { Slide } from "react-awesome-reveal";
-import { Box, Image, LayOut, SectionTitle, SubTitle, Text, Title, Wrapper } from "../common/style";
+import { useState } from "react";
+import {
+  Box,
+  Image,
+  LayOut,
+  SectionTitle,
+  SubTitle,
+  Text,
+  Title,
+  Wrapper,
+} from "../common/style";
+import Modal from "./Modal";
 
 const contentItem = [
   {
@@ -15,20 +25,34 @@ const contentItem = [
 ];
 
 const Three = () => {
+  const [modalVisibleId, setModalVisibleId] = useState(false);
+
+  const onModalHandler = (idx) => {
+    setModalVisibleId(!modalVisibleId);
+    setModalVisibleId(idx);
+  };
+
   return (
-    <Wrapper>
+    <Wrapper id="PROJECT">
       <LayOut>
         <Title>npm publish</Title>
         <SectionTitle>Projects</SectionTitle>
-        <Slide className="width100"></Slide>
+        {/* <Slide className="width100"></Slide> */}
         <Wrapper dr={`row`} ju={`space-between`} margin={`30px 0 0`}>
           {contentItem.map((data, idx) => {
             return (
-              <Box key={idx}>
-                <Text className="contentSub">{data.title}</Text>
-                <Text className="contentText">{data.title2}</Text>
-                <Image src={`/images/my/${data.img}`} />
-              </Box>
+              <>
+                <Box key={idx} onClick={() => onModalHandler(data.idx)}>
+                  <Text className="contentSub">{data.title}</Text>
+                  <Text className="contentText">{data.title2}</Text>
+                  <Image src={`/images/my/${data.img}`} />
+                </Box>
+                {/* <Modal
+                  id={data.idx}
+                  modalVisibleId={modalVisibleId}
+                  setModalVisibleId={setModalVisibleId}
+                /> */}
+              </>
             );
           })}
         </Wrapper>

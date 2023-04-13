@@ -1,5 +1,13 @@
-import { Slide } from "react-awesome-reveal";
-import { Box, Image, LayOut, SectionTitle, SubTitle, Text, Title, Wrapper } from "../common/style";
+import {
+  Box,
+  Image,
+  LayOut,
+  SectionTitle,
+  SubTitle,
+  Text,
+  Title,
+  Wrapper,
+} from "../common/style";
 
 const contentItem = [
   {
@@ -38,27 +46,31 @@ const contentItem = [
 
 const Four = () => {
   return (
-    <Wrapper bgColor={`#27272e`}>
+    <Wrapper id="SKILLS" bgColor={`#27272e`}>
       <LayOut>
         <Title>npm ls</Title>
-        <SectionTitle color={`#fff`}>
-          Skills
-        </SectionTitle>
-        <Slide className="width100">
-          <SubTitle opacity={`0.6`} color={`#fff`}>
-            Design anything from simple icons to fully featured
-            <br />
-            websites and applications.
-          </SubTitle>
-        </Slide>
+        <SectionTitle color={`#fff`}>Skills</SectionTitle>
+        {/* <Slide className="width100"> */}
+        <SubTitle opacity={`0.6`} color={`#fff`}>
+          Design anything from simple icons to fully featured
+          <br />
+          websites and applications.
+        </SubTitle>
+        {/* </Slide> */}
         <Wrapper dr={`row`} ju={`space-between`}>
           {contentItem.map((data, idx) => {
             return (
-              <Wrapper width={`calc(100%/4 - 20px)`} padding={`30px 10px`}>
+              <Wrapper
+                key={idx}
+                width={`calc(100%/4 - 20px)`}
+                padding={`30px 10px`}
+              >
                 <Wrapper width={`60px`} margin={`20px`}>
                   <Image src={`/images/icon/${data.img}`} />
                 </Wrapper>
-                <Text color={`#fff`} fontSize={`20px`}>{data.title}</Text>
+                <Text color={`#fff`} fontSize={`20px`}>
+                  {data.title}
+                </Text>
               </Wrapper>
             );
           })}

@@ -2,8 +2,9 @@ import styled from "styled-components";
 import { LayOut, Wrapper } from "./style";
 import { useCallback, useEffect, useRef, useState } from "react";
 import Lottie from "./Lottie";
+import { NavLink, Route } from "react-router-dom";
 
-const HeadLink = styled.p`
+const HeadLink = styled.a`
   border: none;
   font-size: 20px;
   padding: 10px 16px;
@@ -17,53 +18,52 @@ const HeadLink = styled.p`
 `;
 
 const HeaerWrap = styled(Wrapper)`
-  height: 44px;
-  position: flex;
+  height: 100px;
+  position: ${(props) => props.isscroll || `absolute`};
   top: 0;
-  display: flex;
   justify-content: center;
   align-items: center;
   z-index: 999;
+  /* padding-top: 32px;
+  top: -32px; */
+  transition: 0.5s ease all;
 
-  &.sticky {
-    position: sticky;
-  }
+  ${(props) =>
+    props.isscroll &&
+    `
+  position: sticky;
+  background-color:#fff;
+  `}
 `;
 
 const Header = () => {
-  const [isAnimated, setIsAnimated] = useState(false);
+  const [pageY, setPageY] = useState(0);
+  const [headerScroll, setHeaderScroll] = useState(false);
 
-  const scrollHandler = useCallback(() => {
-    const currentPosition = window.pageYOffset + window.innerHeight;
-    if (!isAnimated && currentPosition >= 0) {
-      setIsAnimated(true);
-    }
-  }, []);
-  
-  window.addEventListener('scroll',scrollHandler)
+  const scrollEvent = useCallback(() => {
+    const { pageYOffset } = window;
+    const headerScroll =
+      (pageY && pageYOffset !== 0 && pageYOffset !== pageY) ||
+      pageYOffset !== 0;
+    setHeaderScroll(headerScroll);
+    setPageY(pageYOffset);
+  }, [pageY]);
 
   useEffect(() => {
-    window.addEventListener("scroll", function () {
-      let winSct = window.scrollY;
-      const header = document.querySelector(".header");
-      if (winSct >= 1) {
-        header.classList.add("active");
-      } else {
-        header.classList.remove("active");
-      }
-    });
-  }, []);
+    const scrollHeader = document.addEventListener("scroll", scrollEvent);
+    return () => scrollHeader;
+  });
 
   return (
-    <HeaerWrap className="header">
+    <HeaerWrap isscroll={headerScroll}>
       <LayOut dr={`row`} ju={`space-between`} padding={`0`}>
         <Lottie />
         <Wrapper dr={`row`} width={`auto`}>
-          <HeadLink>HOME</HeadLink>
-          <HeadLink>ABOUT</HeadLink>
-          <HeadLink>SKILLS</HeadLink>
-          <HeadLink>PROJECT</HeadLink>
-          <HeadLink>CONTACT</HeadLink>
+          <HeadLink href="#HOME">HOME</HeadLink>
+          <HeadLink href="#ABOUT">ABOUT</HeadLink>
+          <HeadLink href="#PROJECT">PROJECT</HeadLink>
+          <HeadLink href="#SKILLS">SKILLS</HeadLink>
+          <HeadLink href="#CONTACT">CONTACT</HeadLink>
         </Wrapper>
       </LayOut>
     </HeaerWrap>
