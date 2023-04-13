@@ -1,10 +1,9 @@
 import styled from "styled-components";
-import { Image, LayOut, Wrapper } from "./style";
-import { useEffect, useMemo, useState } from "react";
+import { LayOut, Wrapper } from "./style";
+import { useCallback, useEffect, useRef, useState } from "react";
 import Lottie from "./Lottie";
 
 const HeadLink = styled.p`
-  postion: fixed;
   border: none;
   font-size: 20px;
   padding: 10px 16px;
@@ -19,15 +18,30 @@ const HeadLink = styled.p`
 
 const HeaerWrap = styled(Wrapper)`
   height: 44px;
-  position: sticky;
+  position: flex;
   top: 0;
   display: flex;
   justify-content: center;
   align-items: center;
   z-index: 999;
+
+  &.sticky {
+    position: sticky;
+  }
 `;
 
 const Header = () => {
+  const [isAnimated, setIsAnimated] = useState(false);
+
+  const scrollHandler = useCallback(() => {
+    const currentPosition = window.pageYOffset + window.innerHeight;
+    if (!isAnimated && currentPosition >= 0) {
+      setIsAnimated(true);
+    }
+  }, []);
+  
+  window.addEventListener('scroll',scrollHandler)
+
   useEffect(() => {
     window.addEventListener("scroll", function () {
       let winSct = window.scrollY;
