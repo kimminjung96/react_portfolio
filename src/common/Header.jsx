@@ -2,8 +2,8 @@ import styled from "styled-components";
 import { LayOut, Wrapper } from "./style";
 import { useCallback, useEffect, useRef, useState } from "react";
 import Lottie from "./Lottie";
-import { NavLink, Route } from "react-router-dom";
-
+/* import { NavLink, Route } from "react-router-dom";
+ */
 const HeadLink = styled.a`
   border: none;
   font-size: 20px;

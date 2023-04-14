@@ -523,26 +523,26 @@ export const Btn = styled.button`
 
 export const Box = styled.div`
   width: calc(100% / 2 - 120px);
-  height: 500px;
   background: ${(props) => props.bgColor || `#ecf2f6`};
   font-family: "Pretendard";
   margin-bottom: 46px;
   padding: 60px 45px;
   border-radius: 30px;
-
+  align-items: flex-start;
   & .contentText {
     width: 100%;
     text-align: ${(props) => props.textAlign || `left`};
-    color: ${(props) => props.color || `#27272e`};
-    font-size: ${(props) => props.fontSize || `20px`};
-    font-weight: ${(props) => props.fontWeight || `600`};
-    margin-bottom: ${(props) => props.marginBottom || `10px`};
+    color: ${(props) => props.color || `#525260`};
+    font-size: ${(props) => props.fontSize || `16px`};
+    font-weight: ${(props) => props.fontWeight || `500`};
+    margin-bottom: ${(props) => props.marginBottom || `4px`};
   }
   & .contentSub {
     width: 100%;
     text-align: ${(props) => props.textAlign || `left`};
     color: ${(props) => props.color || `#7a88ab`};
-    font-size: ${(props) => props.fontSize || `24px`};
+    font-size: ${(props) => props.fontSize || `20px`};
+    font-weight: ${(props) => props.fontWeight || `500`};
   }
   & .contentDate {
     width: 100%;

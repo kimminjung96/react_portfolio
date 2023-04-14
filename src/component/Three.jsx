@@ -24,6 +24,8 @@ const contentItem = [
   },
 ];
 
+
+
 const Three = () => {
   const [modalVisibleId, setModalVisibleId] = useState(false);
 
@@ -47,11 +49,11 @@ const Three = () => {
                   <Text className="contentText">{data.title2}</Text>
                   <Image src={`/images/my/${data.img}`} />
                 </Box>
-                {/* <Modal
+              {/*   {<Modal
                   id={data.idx}
                   modalVisibleId={modalVisibleId}
                   setModalVisibleId={setModalVisibleId}
-                /> */}
+                />} */}
               </>
             );
           })}
