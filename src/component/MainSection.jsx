@@ -1,6 +1,7 @@
 import { Btn, Image, LayOut, Text, Title, Wrapper } from "../common/style";
 import useWidth from "../common/useWidth";
 import styled from "styled-components";
+import Theme from "../common/Theme";
 
 /* 
 react-awesome-reveal
@@ -106,10 +107,18 @@ const MainSection = () => {
                 start<span> 준비가 된 </span>frontend
               </SubSlogan>
               <Wrapper dr={`row`} ju={`flex-start`}>
-                <Btn bgColor={`#5956e9`} color={`#fff`} margin={`0 10px`}>
+                <Btn
+                  bgColor={`${Theme.basic_C}`}
+                  color={`${Theme.white_C}`}
+                  margin={`0 10px`}
+                >
                   <Text Pret={true}>이력서 다운로드</Text>
                 </Btn>
-                <Btn bgColor={`#5956e9`} color={`#fff`} margin={`0 10px`}>
+                <Btn
+                  bgColor={`${Theme.basic_C}`}
+                  color={`${Theme.white_C}`}
+                  margin={`0 10px`}
+                >
                   <Text>github 바로가기</Text>
                 </Btn>
               </Wrapper>

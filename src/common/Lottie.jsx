@@ -1,6 +1,8 @@
 import React, { useEffect, useRef } from "react";
 import lottie from "lottie-web";
-import lottieAni from "./logo3.json";
+import lottieAni from "./rocket.json";
+import { Image } from "./style";
+import logo from "./logo7.svg";
 
 const Lottie = () => {
   const blob1 = useRef();
@@ -17,11 +19,33 @@ const Lottie = () => {
     <div style={{ position: "relative" }}>
       <div
         ref={blob1}
-        style={{ width: 80, position: "absolute", left: "-10px", top: "-50px" }}
+        style={{
+          width: 60,
+          position: "absolute",
+          left: "-10px",
+          top: "-90%",
+          zIndex: 2,
+        }}
       ></div>
-      {/* <h1>
-        <Image src={logo} alt="로고" style={{ position: "absolute", zIndex: 10, width: 50 }} />
-      </h1> */}
+      {/* <div
+        ref={blob1}
+        style={{ width: 60, position: "absolute", left: "-10px", top: "-30px" }}
+      ></div> */}
+
+      <h1>
+        <Image
+          src={logo}
+          alt="로고"
+          style={{
+            position: "absolute",
+            zIndex: 1,
+            width: 20,
+            left: "29px",
+            bottom: "-70%",
+            /* transform: "translateY(-50%)", */
+          }}
+        />
+      </h1>
     </div>
   );
 };
