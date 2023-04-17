@@ -6,19 +6,19 @@ import { Image, Wrapper, Btn, Text } from "../common/style";
 import Theme from "../common/Theme";
 
 const ModalWrap = styled(Wrapper)`
-  /* flex-direction: row; */
   background-color: white;
   width: 60%;
   min-width: 300px;
   max-width: 900px;
   height: 80%;
-  overflow-y: scroll;
+  /* overflow-y: scroll; */
   position: fixed;
   left: 50%;
   top: 50%;
-  padding: 5px;
+  padding: 50px 40px;
   transform: translate(-50%, -50%);
   z-index: 1011;
+  border-radius: 20px;
 `;
 
 const BlackWrapper = styled(Wrapper)`
@@ -48,36 +48,24 @@ const Modal = ({ data, onSetIsVisible }) => {
 
   return (
     <>
-      <BlackWrapper
-        className="body-blackout-style"
-        onClick={() => onSetIsVisible(false)}
-      ></BlackWrapper>
+      <BlackWrapper className="body-blackout-style" onClick={() => onSetIsVisible(false)}></BlackWrapper>
       <ModalWrap>
-        <Wrapper>
-          <Wrapper
-            position={`relative`}
-            top={`0`}
-            left={`0`}
-            onClick={() => onSetIsVisible(false)}
-          >
-            X
+        <Wrapper height={`100%`} ju={`space-between`}>
+          <Wrapper position={`relative`} onClick={() => onSetIsVisible(false)}>
+            <Text position={`absolute`}>닫기 X</Text>
           </Wrapper>
-          {/* <Image width={`50%`} src={`/images/my/${data.detailImg}`} /> */}
-          <Image
-            width={`50%`}
-            src={
-              "https://cdn.pixabay.com/photo/2019/03/22/13/10/pc-4073227_1280.png"
-            }
-          />
-          <Text>{data.id}</Text>
-          <Text>{data.title}</Text>
+          <Wrapper position={`relative`} height={`400px`} overflow={`hidden`}>
+            <Image position={`absolute`} width={`100%`} top={`0`} src={`/images/${data.detailImg}`} />
+          </Wrapper>
+          <Text>{data.id}번째 프로젝트 {data.title}입니다.</Text>
+          <Text>{data.note}</Text>
           <Text>기술스택 : {data.tech}</Text>
           <Text>제작기간 : {data.period}</Text>
           <Text>디바이스 : {data.device}</Text>
           <Text>페이지수 : {data.page}</Text>
           <Text>배포 : {data.Deploy}</Text>
           <Text>기여도 : {data.contribution}</Text>
-          <Text>특징 : {data.note}</Text>
+          
           <Wrapper dr={`row`}>
             <LinkBtn
               onClick={() => {
