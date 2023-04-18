@@ -1,8 +1,5 @@
-// DetailMenuModal.js
-
-import { Link } from "react-router-dom";
 import styled from "styled-components";
-import { Image, Wrapper, Btn, Text } from "../common/style";
+import { Image, Wrapper, Text } from "../common/style";
 import Theme from "../common/Theme";
 
 const ModalWrap = styled(Wrapper)`
@@ -11,7 +8,7 @@ const ModalWrap = styled(Wrapper)`
   min-width: 300px;
   max-width: 900px;
   height: 80%;
-  /* overflow-y: scroll; */
+  overflow: hidden;
   position: fixed;
   left: 50%;
   top: 50%;
@@ -32,6 +29,7 @@ const BlackWrapper = styled(Wrapper)`
   background-color: rgba(0, 0, 0, 0.35);
 `;
 const LinkBtn = styled.button`
+width:calc(100% / 5 - 10px);
   padding: 10px 20px;
   background-color: ${(props) => props.color || Theme.basic_C};
   border-radius: 14px;
@@ -50,29 +48,41 @@ const Modal = ({ data, onSetIsVisible }) => {
     <>
       <BlackWrapper className="body-blackout-style" onClick={() => onSetIsVisible(false)}></BlackWrapper>
       <ModalWrap>
-        <Wrapper height={`100%`} ju={`space-between`}>
-          <Wrapper position={`relative`} onClick={() => onSetIsVisible(false)}>
-            <Text position={`absolute`}>닫기 X</Text>
+        <Wrapper position={`relative`} height={`100%`} ju={`space-between`}>
+          <Wrapper cursor={`pointer`} position={`absolute`} top={`-30px`} right={`-20px`} width={`40px`} height={`40px`} radius={`50%`} bgColor={`${Theme.grey2_C}`} zIndex={`10`} onClick={() => onSetIsVisible(false)}>
+            <Text color={`${Theme.white_C}`}>X</Text>
           </Wrapper>
-          <Wrapper position={`relative`} height={`400px`} overflow={`hidden`}>
-            <Image position={`absolute`} width={`100%`} top={`0`} src={`/images/${data.detailImg}`} />
+          <Wrapper>
+            <Wrapper position={`relative`} height={`40vh`} overflow={`hidden`}>
+              <Image position={`absolute`} width={`100%`} top={`0`} src={`/images/${data.detailImg}`} />
+            </Wrapper>
+            <Wrapper al={`start`}>
+              <Text>
+                {data.id}번째 프로젝트 {data.title}입니다.
+              </Text>
+              <Text>{data.note}</Text>
+              <Wrapper dr={`row`}>
+                <Wrapper width={`50%`} al={`flex-start`}>
+                  <Text>기술스택 : {data.tech}</Text>
+                  <Text>디바이스 : {data.device}</Text>
+                  <Text>페이지수 : {data.page}</Text>
+                </Wrapper>
+                <Wrapper width={`50%`} al={`flex-start`}>
+                  <Text>제작기간 : {data.period}</Text>
+                  <Text>배 포 : {data.Deploy}</Text>
+                  <Text>기 여 도 : {data.contribution}</Text>
+                </Wrapper>
+              </Wrapper>
+            </Wrapper>
           </Wrapper>
-          <Text>{data.id}번째 프로젝트 {data.title}입니다.</Text>
-          <Text>{data.note}</Text>
-          <Text>기술스택 : {data.tech}</Text>
-          <Text>제작기간 : {data.period}</Text>
-          <Text>디바이스 : {data.device}</Text>
-          <Text>페이지수 : {data.page}</Text>
-          <Text>배포 : {data.Deploy}</Text>
-          <Text>기여도 : {data.contribution}</Text>
-          
+
           <Wrapper dr={`row`}>
             <LinkBtn
               onClick={() => {
                 MoveLink(`${data.frontServer}`);
               }}
             >
-              {data.title2} 바로가기
+             사이트 바로가기
             </LinkBtn>
             {data.frontGit && (
               <LinkBtn
@@ -98,7 +108,7 @@ const Modal = ({ data, onSetIsVisible }) => {
                   MoveLink(`${data.backGit}`);
                 }}
               >
-                백깃허브 바로가기
+                백 깃허브
               </LinkBtn>
             )}
             {data.proposal && (

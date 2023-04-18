@@ -2,20 +2,20 @@ import "./App.css";
 import GlobalStyles from "./common/GlobalStyles";
 import Header from "./common/Header";
 import Contact from "./component/Contact";
-import Four from "./component/Four";
-import MainSection from "./component/MainSection";
-import Second from "./component/Second";
-import Three from "./component/Three";
+import Skill from "./component/Skill";
+import Home from "./component/Home";
+import About from "./component/About";
+import Project from "./component/Project";
 
 function App() {
   return (
     <div className="App">
       {/* <GlobalStyles /> */}
       <Header />
-      <MainSection />
-      <Second />
-      <Three />
-      <Four />
+      <Home />
+      <About />
+      <Project />
+      <Skill />
       <Contact />
     </div>
   );

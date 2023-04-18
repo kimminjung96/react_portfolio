@@ -44,7 +44,7 @@ const contentItem = [
   },
 ];
 
-const Four = () => {
+const Skill = () => {
   return (
     <Wrapper id="SKILLS" bgColor={`#27272e`}>
       <LayOut>
@@ -80,4 +80,4 @@ const Four = () => {
   );
 };
 
-export default Four;
+export default Skill;

@@ -34,7 +34,7 @@ const history = [
   ["", "2019.01~ 2020.01", "Holiday Inn Hotel F&B"],
 ];
 
-const Second = () => {
+const About = () => {
   return (
     <Wrapper id="ABOUT" bgColor={`#27272e`}>
       <LayOut>
@@ -77,4 +77,4 @@ const Second = () => {
   );
 };
 
-export default Second;
+export default About;

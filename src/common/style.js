@@ -563,27 +563,21 @@ export const Box = styled.div`
     font-size: ${(props) => props.fontSize || `18px`};
     margin-bottom: ${(props) => props.marginBottom || `4px`};
   }
+  & > .hover {
+    width: 100%;
+    height: 100%;
 
-  & > .hover img {
-    filter: drop-shadow(rgb(89, 86, 233, 0.15) 6px 10px 10px);
-  }
-
-  & > .hover:hover > img {
-    transform: scale(1.2);
-    filter: drop-shadow(rgb(89, 86, 233, 0.25) 9px 20px 6px);
+    img {
+      filter: drop-shadow(rgb(89, 86, 233, 0.15) 6px 10px 10px);
+    }
+    &:hover > img {
+      transform: scale(1.2);
+      filter: drop-shadow(rgb(89, 86, 233, 0.25) 9px 20px 6px);
+    }
   }
 `;
 
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-export const AdminContent = styled.div`
-  padding: 20px;
-`;
-
-export const GuideUl = styled.ul`
-  width: 100%;
-  padding: 5px;
-`;
-
 export const GuideLi = styled.li`
   width: 100%;
   margin-bottom: 5px;

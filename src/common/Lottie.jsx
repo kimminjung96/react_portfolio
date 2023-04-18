@@ -2,7 +2,7 @@ import React, { useEffect, useRef } from "react";
 import lottie from "lottie-web";
 import lottieAni from "./rocket.json";
 import { Image } from "./style";
-import logo from "./logo7.svg";
+import logo from "./logo.svg";
 
 const Lottie = () => {
   const blob1 = useRef();

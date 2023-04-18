@@ -71,7 +71,7 @@ const SubSlogan = styled(Slogan)`
   }
 `;
 
-const MainSection = () => {
+const Home = () => {
   const width = useWidth();
   return (
     <>
@@ -144,4 +144,4 @@ const MainSection = () => {
   );
 };
 
-export default MainSection;
+export default Home;

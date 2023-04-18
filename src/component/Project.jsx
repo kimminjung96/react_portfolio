@@ -90,7 +90,7 @@ const contentItem = [
   },
 ];
 
-const Three = () => {
+const Project = () => {
   const [modalVisibleId, setModalVisibleId] = useState("");
   const [isVisible, setIsVisible] = useState(false);
   const onSetIsVisible = (id) => {
@@ -125,4 +125,4 @@ const Three = () => {
   );
 };
 
-export default Three;
+export default Project;
