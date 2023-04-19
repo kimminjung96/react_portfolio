@@ -8,12 +8,12 @@ const HeadLink = styled.a`
   border: none;
   font-size: 20px;
   padding: 10px 16px;
-  color: #333;
+  color: ${(props) => props.theme.grey2_C};
   transition: all 0.9s, color 0.3;
   background: ${(props) => props.bgColor || `transparent`};
 
   &:hover {
-    color: #5956e9;
+    color: ${(props) => props.theme.basic_C};
   }
 `;
 
@@ -42,9 +42,7 @@ const Header = () => {
 
   const scrollEvent = useCallback(() => {
     const { pageYOffset } = window;
-    const headerScroll =
-      (pageY && pageYOffset !== 0 && pageYOffset !== pageY) ||
-      pageYOffset !== 0;
+    const headerScroll = (pageY && pageYOffset !== 0 && pageYOffset !== pageY) || pageYOffset !== 0;
     setHeaderScroll(headerScroll);
     setPageY(pageYOffset);
   }, [pageY]);

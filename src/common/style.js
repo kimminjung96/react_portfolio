@@ -184,11 +184,6 @@ export const CommonButton = styled.button`
     ${(props) => props.kindOf === `subTheme` && `background ${props.theme.basicTheme_C};`}
     ${(props) => props.kindOf === `subTheme` && `border : 1px solid ${props.theme.basicTheme_C};`}
 
-          
-
-    ${(props) => props.kindOf === `kakao` && `background : ${props.theme.kakao_C};`}
-    ${(props) => props.kindOf === `kakao` && `color : ${props.theme.subTheme4_C};`}
-    ${(props) => props.kindOf === `kakao` && `border : 1px solid ${props.theme.subTheme4_C};`}
     ${(props) => props.kindOf === `delete` && `background : ${props.theme.white_C};`}
     ${(props) => props.kindOf === `delete` && `color : ${props.theme.red_C};`}
     ${(props) => props.kindOf === `delete` && `border : 1px solid ${props.theme.red_C};`}
@@ -233,7 +228,7 @@ export const Text = styled.p`
   margin: ${(props) => props.margin || `0`};
   padding: ${(props) => props.padding};
   background: ${(props) => props.bgColor};
-  text-align: ${(props) => props.textAlign};
+  text-align: ${(props) => props.textAlign || `left`};
   position: ${(props) => props.position};
   top: ${(props) => props.top};
   bottom: ${(props) => props.bottom};
@@ -322,7 +317,7 @@ export const SpanText = styled.span`
   right: ${(props) => props.right};
   font-style: ${(props) => props.fontStyle};
   cursor: ${(props) => props.cursor};
-  z-index: 1;
+  z-index: ${(props) => props.zIndex || `1`};
   border: ${(props) => props.border};
   border-radius: ${(props) => props.radius};
   box-shadow: ${(props) => props.shadow};
@@ -540,22 +535,7 @@ export const Box = styled.div`
     font-size: ${(props) => props.fontSize || `20px`};
     font-weight: ${(props) => props.fontWeight || `500`};
   }
-  & .projectSub {
-    width: 100%;
-    text-align: ${(props) => props.textAlign || `left`};
-    color: ${(props) => props.color || `#525260`};
-    font-size: ${(props) => props.fontSize || `18px`};
-    font-weight: ${(props) => props.fontWeight || `500`};
-    margin-bottom: ${(props) => props.marginBottom || `16px`};
-  }
-  & .projectText {
-    width: 100%;
-    text-align: ${(props) => props.textAlign || `left`};
-    color: ${(props) => props.color || `#292930`};
-    font-size: ${(props) => props.fontSize || `48px`};
-    font-weight: ${(props) => props.fontWeight || `500`};
-    margin-bottom: 30px;
-  }
+
   & .contentDate {
     width: 100%;
     text-align: ${(props) => props.textAlign || `left`};
@@ -575,6 +555,35 @@ export const Box = styled.div`
       filter: drop-shadow(rgb(89, 86, 233, 0.25) 9px 20px 6px);
     }
   }
+`;
+
+export const ModalFont = styled(Text)`
+  &.projectSub {
+    width: 100%;
+    text-align: ${(props) => props.textAlign || `left`};
+    color: ${(props) => props.color || `#525260`};
+    font-size: ${(props) => props.fontSize || `18px`};
+    font-weight: ${(props) => props.fontWeight || `500`};
+    margin-bottom: ${(props) => props.marginBottom || `16px`};
+  }
+  &.projectText {
+    width: 100%;
+    text-align: ${(props) => props.textAlign || `left`};
+    color: ${(props) => props.color || `#292930`};
+    font-size: ${(props) => props.fontSize || `48px`};
+    font-weight: ${(props) => props.fontWeight || `500`};
+    margin-bottom: 30px;
+  }
+`;
+
+export const ModalText = styled(Text)`
+  width: ${(props) => props.width || `90px`};
+  color: ${(props) => props.color || `#525260`};
+  font-size: ${(props) => props.fontSize || `16px`};
+  font-weight: ${(props) => props.fontWeight || `500`};
+  padding: 16px 0;
+  line-height: 1;
+  border-bottom: 1px solid #eee;
 `;
 
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////

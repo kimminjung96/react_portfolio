@@ -1,6 +1,6 @@
 import { useState } from "react";
 import styled from "styled-components";
-import { Box, Image, LayOut, SectionTitle, SubTitle, Text, Title, Wrapper } from "../common/style";
+import { Box, Image, LayOut, ModalFont, SectionTitle, SubTitle, Text, Title, Wrapper } from "../common/style";
 import Modal from "./Modal";
 
 const contentItem = [
@@ -23,7 +23,7 @@ const contentItem = [
     backServer: "https://port-0-onetrip-server-nx562olfc8wgdo.sel3.cloudtype.app/products",
     frontGit: "https://github.com/kimminjung96/OneTrip",
     backGit: "https://github.com/Youngjung3/onetrip_server",
-    proposal: "", //기획서
+    proposal: "onetrip.pdf",
   },
   {
     id: 2,
@@ -111,9 +111,9 @@ const Project = () => {
             return (
               <Box key={data.id}>
                 <Wrapper className="hover" onClick={() => onSetIsVisible(data)}>
-                  <Text className="projectSub">{data.tech}</Text>
-                  <Text className="projectText">{data.title}</Text>
-                  <Image width={`${data.width}`} transform={`${data.transform}`} src={`/images/${data.img}`} />
+                  <ModalFont className="projectSub">{data.tech}</ModalFont>
+                  <ModalFont className="projectText">{data.title}</ModalFont>
+                  <Image width={`${data.width}`} transform={`${data.transform}`} src={`/images/project/${data.img}`} />
                 </Wrapper>
                 <div>{isVisible && <Modal data={modalVisibleId} onSetIsVisible={onSetIsVisible} />}</div>
               </Box>
