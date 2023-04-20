@@ -31,7 +31,7 @@ const HeaerWrap = styled(Wrapper)`
   ${(props) =>
     props.isscroll &&
     `
-  position: sticky;
+  position: fixed;
   background-color:#fff;
   `}
 `;
