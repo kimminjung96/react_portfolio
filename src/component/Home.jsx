@@ -146,7 +146,7 @@ const Home = () => {
               radius={`48% 48% 0 0`}
             >
               <Image
-                src="/images/my/1.png"
+                src="/images/my/min.png"
                 alt="나의 프로필 사진"
                 transform={`rotateY(180deg)`}
                 objPosition={`60px 540px`}
