@@ -35,6 +35,7 @@ const GlobalStyles = createGlobalStyle`
   ${fontStyle}
 
   body {
+    
     font-family: "Pretendard", sans-serif;
     color: ${(props) => props.theme.grey_C};
   }

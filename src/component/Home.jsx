@@ -70,6 +70,18 @@ const SubSlogan = styled(Slogan)`
     font-size: 24px;
   }
 `;
+const action01 = (event) => {
+  let card_x = getTransformValue(event.clientX, window.innerWidth, 56);
+  let card_y = getTransformValue(event.clientY, window.innerHeight, 56);
+
+  const floating = document.querySelector(".floating");
+  floating.style.transform =
+    "rotateX(" + card_y / 1 + "deg) rotateY(" + card_x + "deg)";
+
+  function getTransformValue(v1, v2, value) {
+    return (((v1 / v2) * value - value / 2) * 1).toFixed(1);
+  }
+};
 
 const Home = () => {
   const width = useWidth();
@@ -124,6 +136,9 @@ const Home = () => {
               </Wrapper>
             </Wrapper>
             <Wrapper
+              class="active"
+              onMouseMove={action01}
+              className="floating"
               width={width < 700 ? `50%` : `40%`}
               height={`700px`}
               overflow={`hidden`}
@@ -131,7 +146,7 @@ const Home = () => {
               radius={`48% 48% 0 0`}
             >
               <Image
-                src="/images/my/min.png"
+                src="/images/my/1.png"
                 alt="나의 프로필 사진"
                 transform={`rotateY(180deg)`}
                 objPosition={`60px 540px`}
