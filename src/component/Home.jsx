@@ -71,16 +71,31 @@ const SubSlogan = styled(Slogan)`
   }
 `;
 const action01 = (event) => {
-  let card_x = getTransformValue(event.clientX, window.innerWidth, 56);
-  let card_y = getTransformValue(event.clientY, window.innerHeight, 56);
+  /* let card_x = getTransformValue(event.clientX, window.innerWidth, 56);
+  let card_y = getTransformValue(event.clientY, window.innerHeight, 56); */
 
-  const floating = document.querySelector(".floating");
+  const cursor = document.querySelector("#HOME");
+  let x = event.pageX - 15 + "px";
+  let y = event.pageY - 15 + "px";
+  cursor.style.transform = "left:" + x + "; top:" + y;
+
+  document.querySelectorAll("a").forEach((ele) => {
+  let style = ele.getAttribute("class");
+  ele.addEventListener("mouseover", function () {
+    cursor.classList.add(style);
+  });
+  ele.addEventListener("mouseout", function () {
+    cursor.classList.remove(style);
+  });
+});
+
+  /* const floating = document.querySelector(".floating");
   floating.style.transform =
     "rotateX(" + card_y / 1 + "deg) rotateY(" + card_x + "deg)";
 
   function getTransformValue(v1, v2, value) {
     return (((v1 / v2) * value - value / 2) * 1).toFixed(1);
-  }
+  } */
 };
 
 const Home = () => {
@@ -90,27 +105,13 @@ const Home = () => {
       <MainWrapper id="HOME">
         <LayOut>
           <Wrapper dr={`row`} ju={width < 700 ? `center` : "space-between"}>
-            <Wrapper
-              al={width < 700 ? `center` : `left`}
-              width={width < 700 ? `100%` : `auto`}
-            >
+            <Wrapper al={width < 700 ? `center` : `left`} width={width < 700 ? `100%` : `auto`}>
               <Title fontWeight={`700`}>npm i minjung</Title>
               <Slogan>
-                <Text
-                  D2={true}
-                  display={`inline-block`}
-                  fontSize={`96px`}
-                  className="font96"
-                >
+                <Text D2={true} display={`inline-block`} fontSize={`96px`} className="font96">
                   Npm
                 </Text>
-                <Text
-                  D2={true}
-                  display={`inline-block`}
-                  margin={`0 20px`}
-                  fontSize={`96px`}
-                  className="font96"
-                >
+                <Text D2={true} display={`inline-block`} margin={`0 20px`} fontSize={`96px`} className="font96">
                   run
                 </Text>
                 <Text display={`inline-block`}>김민정</Text>
@@ -119,38 +120,16 @@ const Home = () => {
                 start<span> 준비가 된 </span>frontend
               </SubSlogan>
               <Wrapper dr={`row`} ju={`flex-start`}>
-                <Btn
-                  bgColor={`${Theme.basic_C}`}
-                  color={`${Theme.white_C}`}
-                  margin={`0 10px`}
-                >
+                <Btn bgColor={`${Theme.basic_C}`} color={`${Theme.white_C}`} margin={`0 10px`}>
                   <Text Pret={true}>이력서 다운로드</Text>
                 </Btn>
-                <Btn
-                  bgColor={`${Theme.basic_C}`}
-                  color={`${Theme.white_C}`}
-                  margin={`0 10px`}
-                >
+                <Btn bgColor={`${Theme.basic_C}`} color={`${Theme.white_C}`} margin={`0 10px`}>
                   <Text>github 바로가기</Text>
                 </Btn>
               </Wrapper>
             </Wrapper>
-            <Wrapper
-              class="active"
-              onMouseMove={action01}
-              className="floating"
-              width={width < 700 ? `50%` : `40%`}
-              height={`700px`}
-              overflow={`hidden`}
-              bgColor={`linear-gradient(180deg, pink, white)`}
-              radius={`48% 48% 0 0`}
-            >
-              <Image
-                src="/images/my/min.png"
-                alt="나의 프로필 사진"
-                transform={`rotateY(180deg)`}
-                objPosition={`60px 540px`}
-              />
+            <Wrapper onMouseMove={action01} className="floating" width={width < 700 ? `50%` : `40%`} height={`700px`} overflow={`hidden`} bgColor={`linear-gradient(180deg, pink, white)`} radius={`48% 48% 0 0`}>
+              <Image src="/images/my/min.png" alt="나의 프로필 사진" transform={`rotateY(180deg)`} objPosition={`60px 540px`} />
             </Wrapper>
           </Wrapper>
         </LayOut>
