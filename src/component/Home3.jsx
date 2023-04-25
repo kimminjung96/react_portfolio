@@ -3,6 +3,7 @@ import useWidth from "../common/useWidth";
 import styled from "styled-components";
 import Theme from "../common/Theme";
 import { useState } from "react";
+import { useEffect } from "react";
 
 /* 
 react-awesome-reveal
@@ -81,37 +82,52 @@ const Myprofile = styled(Wrapper)`
     transform: ${(props) => props.transform || `0,0`};
     transform-style: preserve-3d;
     transition: transform 0.05s linear;
+
+    & img {
+    }
   }
 `;
-
 const MyImg = styled(Image)`
-  filter: ${(props) => props.drop};
   transform: translateZ(70px);
-  transform-style: preserve-3d;
-  transition: transform 0.05s linear;
+  transition: ${(props) => props.transition || `filter 0.03s`};
 `;
 
 const Home = () => {
   const width = useWidth();
+  const [card_x, setCardX] = useState(0);
+  const [card_y, setCardY] = useState(0);
+  const [shadow_x, setShadowX] = useState(0);
+  const [shadow_y, setShadowY] = useState(0);
 
-  const [rotation, setRotation] = useState({ x: 0, y: 0 });
-  const [shadow, setShadow] = useState({ x: 0, y: 0 });
-  const [imgShadow, setImgShadow] = useState({ iX: 0, iY: 0 });
+  useEffect(() => {
+    function handleMouseMove(event) {
+      setCardX(getTransformValue(event.clientX, window.innerWidth, 56));
+      setCardY(getTransformValue(event.clientY, window.innerHeight, 56));
+      setShadowX(getTransformValue(event.clientX, window.innerWidth, 28));
+      setShadowY(getTransformValue(event.clientY, window.innerHeight, 28));
+    }
+    document.addEventListener("mousemove", handleMouseMove);
+    return () => {
+      document.removeEventListener("mousemove", handleMouseMove);
+    };
+  }, []);
 
-  const handleMouseMove = (event) => {
-    const x = -(window.innerWidth / 2 - event.pageX) / 20;
-    const y = (window.innerHeight / 2 - event.pageY) / 10;
-    const iX = -(((event.pageX / window.innerWidth) * 80 - 80 / 2) * 1);
-    const iY = ((event.pageY / window.innerHeight) * 14 - 14 / 2) * 1;
+  useEffect(() => {
+    const timeoutId = setTimeout(() => {
+      document.querySelector("body").classList.remove("active");
+    }, 2200);
+    return () => {
+      clearTimeout(timeoutId);
+    };
+  }, []);
 
-    setRotation({ x, y });
-    setShadow({ x, y });
-    setImgShadow({ iX, iY });
-  };
+  function getTransformValue(v1, v2, value) {
+    return (((v1 / v2) * value - value / 2) * 1).toFixed(1);
+  }
 
   return (
     <>
-      <MainWrapper id="HOME" onMouseMove={handleMouseMove}>
+      <MainWrapper id="HOME">
         <LayOut padding={`160px 0 120px`}>
           <Wrapper dr={`row`} ju={width < 700 ? `center` : "space-between"}>
             <Wrapper
@@ -161,14 +177,12 @@ const Home = () => {
             </Wrapper>
             <Myprofile
               width={width < 700 ? `50%` : `40%`}
-              transform={`rotateY(${rotation.x}deg) rotateX(${rotation.y}deg)`}
-              boxShadow={`${shadow.y}px ${
-                shadow.x / 1
-              }px 55px rgba(0, 0, 0, 0.55)`}
+              transform={`rotateX(${card_y / 1}deg) rotateY(${card_x}deg)`}
+              boxShadow={`${-card_x}px ${card_y / 1}px 55px rgba(0, 0, 0, .55)`}
             >
               <Wrapper
-                className="floating"
                 margin={`50px 0 0`}
+                className="floating"
                 width={`80%`}
                 height={`600px`}
                 bgColor={`linear-gradient(180deg, pink, white)`}
@@ -180,9 +194,10 @@ const Home = () => {
                   width={`80%`}
                   position={`absolute`}
                   bottom={`0`}
-                  drop={`drop-shadow(${imgShadow.iX}px ${
-                    imgShadow.iY / 1
-                  }px 10px rgba(0, 0, 0, 0.452))`}
+                  drop={`drop-shadow(${-shadow_x}px ${
+                    shadow_y / 1
+                  }px 4px rgba(0, 0, 0, .6))`}
+                  transition={`position 0.005s linear;`}
                 />
               </Wrapper>
             </Myprofile>

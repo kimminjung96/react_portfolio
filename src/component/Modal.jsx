@@ -1,14 +1,23 @@
 import styled from "styled-components";
-import { Image, Wrapper, Text, SpanText, ModalFont, ModalText } from "../common/style";
+import {
+  Image,
+  Wrapper,
+  Text,
+  SpanText,
+  ModalFont,
+  ModalText,
+} from "../common/style";
 import Theme from "../common/Theme";
+import useWidth from "../common/useWidth";
+import { useCallback } from "react";
+import { useEffect } from "react";
 
 const ModalWrap = styled(Wrapper)`
   background-color: white;
   width: 70%;
   min-width: 300px;
-  max-width: 1100px;
   height: 70%;
-  overflow: hidden;
+  overflow: ${(props) => props.overflow || `hidden`};
   position: fixed;
   left: 50%;
   top: 50%;
@@ -16,6 +25,23 @@ const ModalWrap = styled(Wrapper)`
   transform: translate(-50%, -50%);
   z-index: 1011;
   border-radius: 20px;
+
+  @media (max-width: 1290px) {
+    width: 1100px;
+  }
+
+  @media (max-width: 1100px) {
+    width: 90%;
+    padding-left: 10px;
+    padding-right: 10px;
+  }
+`;
+
+const ModalLayout = styled(Wrapper)`
+  position: relative;
+  width: 100%;
+  height: 100%;
+  justify-content: space-between;
 `;
 
 const BlackWrapper = styled(Wrapper)`
@@ -45,22 +71,58 @@ const LinkBtn = styled.button`
 `;
 
 const Modal = ({ data, onSetIsVisible }) => {
-  const MoveLink = (url) => {
+  const width = useWidth();
+  const MoveLink = useCallback((url) => {
     window.open(url);
-  };
+  });
 
   return (
     <>
-      <BlackWrapper className="body-blackout-style" onClick={() => onSetIsVisible(false)} />
-      <ModalWrap>
-        <Wrapper position={`relative`} height={`100%`} ju={`space-between`}>
-          <Wrapper cursor={`pointer`} position={`absolute`} top={`-60px`} right={`-20px`} width={`40px`} height={`40px`} radius={`50%`} bgColor={`${Theme.grey2_C}`} zIndex={`10`} onClick={() => onSetIsVisible(false)}>
+      <BlackWrapper
+        className="body-blackout-style"
+        onClick={() => onSetIsVisible(false)}
+      />
+      <ModalWrap overflow={width < 900 ? `scroll` : `hidden`}>
+        <ModalLayout>
+          <Wrapper
+            cursor={`pointer`}
+            position={`absolute`}
+            top={`-60px`}
+            right={width < 1100 ? `0px` : `-20px`}
+            width={`40px`}
+            height={`40px`}
+            radius={`50%`}
+            bgColor={`${Theme.grey2_C}`}
+            zIndex={`10`}
+            onClick={() => onSetIsVisible(false)}
+          >
             <Text color={`${Theme.white_C}`}>X</Text>
           </Wrapper>
-          <Wrapper dr={`row`} height={`100%`}>
-            <Wrapper width={`45%`} height={`100%`} ju={`flex-end`}>
-              <Wrapper position={`relative`} height={`60%`} overflow={`hidden`} margin={`0 0 60px`}>
-                <Image position={`absolute`} width={`100%`} top={`0`} src={`/images/project/${data.detailImg}`} />
+          <Wrapper
+            dr={width < 1100 ? `column` : `row`}
+            ju={width < 1100 ? `flex-start` : `center`}
+            wrap={`nowrap`}
+            width={`100%`}
+            height={`100%`}
+          >
+            <Wrapper
+              width={width < 1100 ? `100%` : `45%`}
+              height={width < 1100 ? `auto` : `100%`}
+              wrap={`nowrap`}
+              ju={width < 1100 ? `flex-start` : `flex-end`}
+            >
+              <Wrapper
+                position={`relative`}
+                height={width < 1100 ? `300px` : `60%`}
+                overflow={`hidden`}
+                margin={width < 1100 ? `0 0 20px` : `0 0 60px`}
+              >
+                <Image
+                  position={`absolute`}
+                  width={`100%`}
+                  top={`0`}
+                  src={`/images/project/${data.detailImg}`}
+                />
               </Wrapper>
               <Wrapper dr={`row`} ju={`space-between`}>
                 <LinkBtn
@@ -111,10 +173,28 @@ const Modal = ({ data, onSetIsVisible }) => {
               </Wrapper>
             </Wrapper>
 
-            <Wrapper ju={`space-between`} width={`45%`} height={`100%`} padding={`0 0 0 10%`}>
+            <Wrapper
+              ju={`space-between`}
+              width={width < 1100 ? `100%` : `45%`}
+              height={width < 1100 ? `auto` : `100%`}
+              padding={width < 1100 ? `0` : `0 0 0 10%`}
+            >
               <Wrapper>
                 <ModalFont className="projectText" position={`relative`}>
-                  <SpanText position={`absolute`} width={`30px`} fontSize={`14px`} textAlign={`center`} zIndex={`-10`} left={`-18px`} top={`-0px`} border={`50%`} bgColor={`${Theme.basic_C}`} color={`${Theme.white_C}`} radius={`50%`} lineHeight={`30px`}>
+                  <SpanText
+                    position={`absolute`}
+                    width={`30px`}
+                    fontSize={`14px`}
+                    textAlign={`center`}
+                    zIndex={`-10`}
+                    left={width < 1100 ? `0px` : `-18px`}
+                    top={`-0px`}
+                    border={`50%`}
+                    bgColor={`${Theme.basic_C}`}
+                    color={`${Theme.white_C}`}
+                    radius={`50%`}
+                    lineHeight={`30px`}
+                  >
                     {data.id}
                   </SpanText>
                   {data.title}
@@ -127,7 +207,7 @@ const Modal = ({ data, onSetIsVisible }) => {
                   <ModalText width={`calc(100% - 120px)`}>
                     <SpanText color={`${Theme.grey2_C}`} padding={`0 20px 0 0`}>
                       |
-                    </SpanText>{" "}
+                    </SpanText>
                     {data.tech}
                   </ModalText>
                 </Wrapper>
@@ -137,7 +217,7 @@ const Modal = ({ data, onSetIsVisible }) => {
                   <ModalText width={`calc(100% - 120px)`}>
                     <SpanText color={`${Theme.grey2_C}`} padding={`0 20px 0 0`}>
                       |
-                    </SpanText>{" "}
+                    </SpanText>
                     {data.device}
                   </ModalText>
                 </Wrapper>
@@ -146,7 +226,7 @@ const Modal = ({ data, onSetIsVisible }) => {
                   <ModalText width={`calc(100% - 120px)`}>
                     <SpanText color={`${Theme.grey2_C}`} padding={`0 20px 0 0`}>
                       |
-                    </SpanText>{" "}
+                    </SpanText>
                     {data.page}
                   </ModalText>
                 </Wrapper>
@@ -155,16 +235,18 @@ const Modal = ({ data, onSetIsVisible }) => {
                   <ModalText width={`calc(100% - 120px)`}>
                     <SpanText color={`${Theme.grey2_C}`} padding={`0 20px 0 0`}>
                       |
-                    </SpanText>{" "}
+                    </SpanText>
                     {data.period}
                   </ModalText>
                 </Wrapper>
                 <Wrapper dr={`row`}>
-                  <ModalText>배&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;포</ModalText>
+                  <ModalText>
+                    배&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;포
+                  </ModalText>
                   <ModalText width={`calc(100% - 120px)`}>
                     <SpanText color={`${Theme.grey2_C}`} padding={`0 20px 0 0`}>
                       |
-                    </SpanText>{" "}
+                    </SpanText>
                     {data.Deploy}
                   </ModalText>
                 </Wrapper>
@@ -173,14 +255,14 @@ const Modal = ({ data, onSetIsVisible }) => {
                   <ModalText width={`calc(100% - 120px)`}>
                     <SpanText color={`${Theme.grey2_C}`} padding={`0 20px 0 0`}>
                       |
-                    </SpanText>{" "}
+                    </SpanText>
                     {data.contribution}
                   </ModalText>
                 </Wrapper>
               </Wrapper>
             </Wrapper>
           </Wrapper>
-        </Wrapper>
+        </ModalLayout>
       </ModalWrap>
     </>
   );

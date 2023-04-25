@@ -1,7 +1,18 @@
 import { useState } from "react";
 import styled from "styled-components";
-import { Box, Image, LayOut, ModalFont, SectionTitle, SubTitle, Text, Title, Wrapper } from "../common/style";
+import {
+  Box,
+  Image,
+  LayOut,
+  ModalFont,
+  SectionTitle,
+  SubTitle,
+  Text,
+  Title,
+  Wrapper,
+} from "../common/style";
 import Modal from "./Modal";
+import { useEffect } from "react";
 
 const contentItem = [
   {
@@ -20,7 +31,8 @@ const contentItem = [
     contribution: "30%",
     note: "풀스택 프로젝트",
     frontServer: "https://one-trip.vercel.app/",
-    backServer: "https://port-0-onetrip-server-nx562olfc8wgdo.sel3.cloudtype.app/products",
+    backServer:
+      "https://port-0-onetrip-server-nx562olfc8wgdo.sel3.cloudtype.app/products",
     frontGit: "https://github.com/kimminjung96/OneTrip",
     backGit: "https://github.com/Youngjung3/onetrip_server",
     proposal: "onetrip.pdf",
@@ -99,6 +111,21 @@ const Project = () => {
     setIsVisible(!isVisible);
   };
 
+  useEffect(() => {
+    if (isVisible == true) {
+      document.body.style.cssText = `
+      position: fixed; 
+      top: -${window.scrollY}px;
+      overflow-y: scroll;
+      width: 100%;`;
+      return () => {
+        const scrollY = document.body.style.top;
+        document.body.style.cssText = "";
+        window.scrollTo(0, parseInt(scrollY || "0", 10) * -1);
+      };
+    }
+  }, [isVisible]);
+
   return (
     <Wrapper id="PROJECT">
       <LayOut>
@@ -113,9 +140,20 @@ const Project = () => {
                 <Wrapper className="hover" onClick={() => onSetIsVisible(data)}>
                   <ModalFont className="projectSub">{data.tech}</ModalFont>
                   <ModalFont className="projectText">{data.title}</ModalFont>
-                  <Image width={`${data.width}`} transform={`${data.transform}`} src={`/images/project/${data.img}`} />
+                  <Image
+                    width={`${data.width}`}
+                    transform={`${data.transform}`}
+                    src={`/images/project/${data.img}`}
+                  />
                 </Wrapper>
-                <div>{isVisible && <Modal data={modalVisibleId} onSetIsVisible={onSetIsVisible} />}</div>
+                <div>
+                  {isVisible && (
+                    <Modal
+                      data={modalVisibleId}
+                      onSetIsVisible={onSetIsVisible}
+                    />
+                  )}
+                </div>
               </Box>
             );
           })}
