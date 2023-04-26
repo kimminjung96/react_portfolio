@@ -145,7 +145,7 @@ const Modal = ({ data, onSetIsVisible }) => {
                 {data.proposal && (
                   <LinkBtn
                     onClick={() => {
-                      MoveLink(`${data.proposal}`);
+                      MoveLink(`/images/project/${data.proposal}`);
                     }}
                   >
                     기획서 보러가기

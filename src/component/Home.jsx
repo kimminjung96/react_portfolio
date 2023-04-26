@@ -164,7 +164,7 @@ const Home = () => {
               transform={`rotateY(${rotation.x}deg) rotateX(${rotation.y}deg)`}
               boxShadow={`${shadow.y}px ${
                 shadow.x / 1
-              }px 55px rgba(0, 0, 0, 0.55)`}
+              }px 70px rgba(62, 41, 83, 0.2)`}
             >
               <Wrapper
                 className="floating"
@@ -182,7 +182,7 @@ const Home = () => {
                   bottom={`0`}
                   drop={`drop-shadow(${imgShadow.iX}px ${
                     imgShadow.iY / 1
-                  }px 10px rgba(0, 0, 0, 0.452))`}
+                  }px 10px rgba(112, 112, 112, 0.15))`}
                 />
               </Wrapper>
             </Myprofile>
