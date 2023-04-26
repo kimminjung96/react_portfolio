@@ -16,8 +16,8 @@ import { useEffect } from "react";
 const contentItem = [
   {
     id: 1,
-    title: "OneTrip",
-    title2: "원트립",
+    title: "리엑트 풀스텍 프로젝트",
+    title2: "OneTrip",
     tech: "React,SCSS,JS,Node Express",
     device: "pc,Mobile(반응형,PWA App)",
     period: "3주",
@@ -38,15 +38,15 @@ const contentItem = [
   },
   {
     id: 2,
-    title: "OneTrip App",
-    title2: "원트립",
+    title: "리엑트 네이티브 프로젝트",
+    title2: "OneTrip App",
     tech: "React,SCSS,JS,Node Express",
     device: "pc,Mobile(반응형,PWA App)",
     period: "4일",
-    img: "project1.png",
+    img: "yuseong.png",
     width: "100%",
     transform: "translatey(50px)",
-    detailImg: "project1_pull.png",
+    detailImg: "yuseong_pull.png",
     Deploy: "깃허브",
     page: "메인1",
     contribution: "30%",
@@ -59,8 +59,8 @@ const contentItem = [
   },
   {
     id: 3,
-    title: "YORIJORI",
-    title2: "요리조리",
+    title: "부트스트랩 프로젝트",
+    title2: "YORIJORI",
     tech: "React,SCSS,JS,Node Express",
     device: "pc,Mobile(반응형,PWA App)",
     period: "3주",
@@ -80,15 +80,15 @@ const contentItem = [
   },
   {
     id: 4,
-    title: "유성구 문화관광",
-    title2: "yuseong 문화관광",
+    title: "자바스크립트 프로젝트",
+    title2: "유성구 문화관광",
     tech: "HTML,CSS,Javascript",
     device: "pc,Mobile(반응형,PWA App)",
     period: "3주",
-    img: "project1.png",
+    img: "yuseong.png",
     width: "100%",
     transform: "translatey(50px)",
-    detailImg: "project1_pull.png",
+    detailImg: "yuseong_pull.png",
     Deploy: "깃허브",
     page: "메인1",
     contribution: "100%",
@@ -137,7 +137,7 @@ const Project = () => {
             return (
               <Box key={data.id}>
                 <Wrapper className="hover" onClick={() => onSetIsVisible(data)}>
-                  <ModalFont className="projectSub">{data.tech}</ModalFont>
+                  <ModalFont className="projectSub">{data.title2}</ModalFont>
                   <ModalFont className="projectText">{data.title}</ModalFont>
                   <Image
                     width={`${data.width}`}
