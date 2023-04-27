@@ -1,15 +1,6 @@
 import { useState } from "react";
 import styled from "styled-components";
-import {
-  Box,
-  Image,
-  LayOut,
-  ModalFont,
-  SectionTitle,
-  SubTitle,
-  Title,
-  Wrapper,
-} from "../common/style";
+import { Box, Image, LayOut, ModalFont, SectionTitle, SubTitle, Title, Wrapper } from "../common/style";
 import Modal from "./Modal";
 import { useEffect } from "react";
 
@@ -30,8 +21,7 @@ const contentItem = [
     contribution: "30%",
     note: "풀스택 프로젝트",
     frontServer: "https://one-trip.vercel.app/",
-    backServer:
-      "https://port-0-onetrip-server-nx562olfc8wgdo.sel3.cloudtype.app/products",
+    backServer: "https://port-0-onetrip-server-nx562olfc8wgdo.sel3.cloudtype.app/products",
     frontGit: "https://github.com/kimminjung96/OneTrip",
     backGit: "https://github.com/Youngjung3/onetrip_server",
     proposal: "onetrip.pdf",
@@ -71,7 +61,7 @@ const contentItem = [
     Deploy: "깃허브",
     page: "메인1,서브1",
     contribution: "30%",
-    note: "",
+    note: "https://kimminjung96.github.io/YORIJORI/https://kimminjung96.github.io/YORIJORI/https://kimminjung96.github.io/YORIJORI/https://kimminjung96.github.io/YORIJORI/https://kimminjung96.github.io/YORIJORI/https://kimminjung96.github.io/YORIJORI/https://kimminjung96.github.io/YORIJORI/",
     frontServer: "https://kimminjung96.github.io/YORIJORI/",
     backServer: "",
     frontGit: "https://github.com/kimminjung96/YORIJORI",
@@ -94,9 +84,9 @@ const contentItem = [
     contribution: "100%",
     note: "",
     frontServer: "https://kimminjung96.github.io/project1/",
-    backServer: "",//
+    backServer: "", //
     frontGit: "https://github.com/kimminjung96/project1",
-    backGit: "",//
+    backGit: "", //
     proposal: "yuseong.pdf",
   },
 ];
@@ -133,29 +123,19 @@ const Project = () => {
         <SubTitle>Click! 프로젝트로 이동가능합니다!</SubTitle>
         {/* <Slide className="width100"></Slide> */}
         <Wrapper dr={`row`} ju={`space-between`} margin={`30px 0 0`}>
-          {contentItem.map((data) => {
-            return (
-              <Box key={data.id}>
-                <Wrapper className="hover" onClick={() => onSetIsVisible(data)}>
-                  <ModalFont className="projectSub">{data.title2}</ModalFont>
-                  <ModalFont className="projectText">{data.title}</ModalFont>
-                  <Image
-                    width={`${data.width}`}
-                    transform={`${data.transform}`}
-                    src={`/images/project/${data.img}`}
-                  />
-                </Wrapper>
-                <div>
-                  {isVisible && (
-                    <Modal
-                      data={modalVisibleId}
-                      onSetIsVisible={onSetIsVisible}
-                    />
-                  )}
-                </div>
-              </Box>
-            );
-          })}
+          {contentItem &&
+            contentItem.map((data) => {
+              return (
+                <Box key={data.id}>
+                  <Wrapper className="hover" onClick={() => onSetIsVisible(data)}>
+                    <ModalFont className="projectSub">{data.title2}</ModalFont>
+                    <ModalFont className="projectText">{data.title}</ModalFont>
+                    <Image width={`${data.width}`} transform={`${data.transform}`} src={`/images/project/${data.img}`} />
+                  </Wrapper>
+                  <div>{isVisible && <Modal data={modalVisibleId} onSetIsVisible={onSetIsVisible} />}</div>
+                </Box>
+              );
+            })}
         </Wrapper>
       </LayOut>
     </Wrapper>

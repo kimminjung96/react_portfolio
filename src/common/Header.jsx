@@ -50,7 +50,7 @@ const Header = () => {
   useEffect(() => {
     const scrollHeader = document.addEventListener("scroll", scrollEvent);
     return () => scrollHeader;
-  });
+  }, [scrollEvent]);
 
   return (
     <HeaerWrap isscroll={headerScroll}>

@@ -1,8 +1,8 @@
 import { Btn, Image, LayOut, Text, Title, Wrapper } from "../common/style";
 import useWidth from "../common/useWidth";
 import styled from "styled-components";
-import { useSpring, animated } from "react-spring";
 import Theme from "../common/Theme";
+import { useState } from "react";
 
 /* 
 react-awesome-reveal
@@ -91,27 +91,50 @@ const MyImg = styled(Image)`
   transition: transform 0.05s linear;
 `;
 
-const calc = (x, y) => [x - window.innerWidth / 2, y - window.innerHeight / 2];
-const trans1 = (x, y) => `translate3d(${x / -10}px,${y / -10}px,0)`;
-const trans4 = (x, y) => `translate3d(${x / -3.5}px,${y / -3.5}px,0)`;
-
 const Home = () => {
   const width = useWidth();
-  const [props, set] = useSpring(() => ({ xy: [0, 0], config: { mass: 10, tension: 550, friction: 140 } }));
 
+  const [rotation, setRotation] = useState({ x: 0, y: 0 });
+  const [shadow, setShadow] = useState({ x: 0, y: 0 });
+  const [imgShadow, setImgShadow] = useState({ iX: 0, iY: 0 });
+
+  const handleMouseMove = (event) => {
+    const x = -(window.innerWidth / 2 - event.pageX) / 20;
+    const y = (window.innerHeight / 2 - event.pageY) / 10;
+    const iX = -(((event.pageX / window.innerWidth) * 80 - 80 / 2) * 1);
+    const iY = ((event.pageY / window.innerHeight) * 14 - 14 / 2) * 1;
+
+    setRotation({ x, y });
+    setShadow({ x, y });
+    setImgShadow({ iX, iY });
+  };
 
   return (
     <>
-      <MainWrapper id="HOME" className="container" onMouseMove={({ clientX: x, clientY: y }) => set({ xy: calc(x, y) })}>
+      <MainWrapper id="HOME" onMouseMove={handleMouseMove}>
         <LayOut padding={`160px 0 120px`}>
           <Wrapper dr={`row`} ju={width < 700 ? `center` : "space-between"}>
-            <Wrapper al={width < 700 ? `center` : `left`} width={width < 700 ? `100%` : `auto`}>
+            <Wrapper
+              al={width < 700 ? `center` : `left`}
+              width={width < 700 ? `100%` : `auto`}
+            >
               <Title fontWeight={`700`}>npm i minjung</Title>
               <Slogan>
-                <Text D2={true} display={`inline-block`} fontSize={`96px`} className="font96">
+                <Text
+                  D2={true}
+                  display={`inline-block`}
+                  fontSize={`96px`}
+                  className="font96"
+                >
                   Npm
                 </Text>
-                <Text D2={true} display={`inline-block`} margin={`0 20px`} fontSize={`96px`} className="font96">
+                <Text
+                  D2={true}
+                  display={`inline-block`}
+                  margin={`0 20px`}
+                  fontSize={`96px`}
+                  className="font96"
+                >
                   run
                 </Text>
                 <Text display={`inline-block`}>김민정</Text>
@@ -120,19 +143,47 @@ const Home = () => {
                 start<span> 준비가 된 </span>frontend
               </SubSlogan>
               <Wrapper dr={`row`} ju={`flex-start`}>
-                <Btn bgColor={`${Theme.basic_C}`} color={`${Theme.white_C}`} margin={`0 10px`}>
+                <Btn
+                  bgColor={`${Theme.basic_C}`}
+                  color={`${Theme.white_C}`}
+                  margin={`0 10px`}
+                >
                   <Text Pret={true}>이력서 다운로드</Text>
                 </Btn>
-                <Btn bgColor={`${Theme.basic_C}`} color={`${Theme.white_C}`} margin={`0 10px`}>
+                <Btn
+                  bgColor={`${Theme.basic_C}`}
+                  color={`${Theme.white_C}`}
+                  margin={`0 10px`}
+                >
                   <Text>github 바로가기</Text>
                 </Btn>
               </Wrapper>
             </Wrapper>
-            <Myprofile width={width < 700 ? `50%` : `40%`}>
-              <Wrapper className="floating" margin={`50px 0 0`} width={`80%`} height={`600px`} bgColor={`linear-gradient(180deg, pink, white)`} radius={`48% 48% 0 0`}>
-                {/* <MyImg src="/images/my/01.png" alt="나의 프로필 사진" width={`80%`} position={`absolute`} bottom={`0`} /> */}
-                <animated.div className="card1" style={{ position: "absolute", borderRadius: 5, willChange: "transform", transform: props.xy.interpolate(trans1) }} />
-                <animated.div className="card4" style={{ position: "absolute", borderRadius: 5, willChange: "transform", transform: props.xy.interpolate(trans4) }} />
+            <Myprofile
+              width={width < 700 ? `50%` : `40%`}
+              transform={`rotateY(${rotation.x}deg) rotateX(${rotation.y}deg)`}
+              boxShadow={`${shadow.y}px ${
+                shadow.x / 1
+              }px 70px rgba(62, 41, 83, 0.2)`}
+            >
+              <Wrapper
+                className="floating"
+                margin={`50px 0 0`}
+                width={`80%`}
+                height={`600px`}
+                bgColor={`linear-gradient(180deg, pink, white)`}
+                radius={`48% 48% 0 0`}
+              >
+                <MyImg
+                  src="/images/my/01.png"
+                  alt="나의 프로필 사진"
+                  width={`80%`}
+                  position={`absolute`}
+                  bottom={`0`}
+                  drop={`drop-shadow(${imgShadow.iX}px ${
+                    imgShadow.iY / 1
+                  }px 10px rgba(112, 112, 112, 0.15))`}
+                />
               </Wrapper>
             </Myprofile>
           </Wrapper>
