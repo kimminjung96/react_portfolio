@@ -1,6 +1,15 @@
 import { useState } from "react";
 import styled from "styled-components";
-import { Box, Image, LayOut, ModalFont, SectionTitle, SubTitle, Title, Wrapper } from "../common/style";
+import {
+  Box,
+  Image,
+  LayOut,
+  ModalFont,
+  SectionTitle,
+  SubTitle,
+  Title,
+  Wrapper,
+} from "../common/style";
 import Modal from "./Modal";
 import { useEffect } from "react";
 
@@ -12,16 +21,15 @@ const contentItem = [
     tech: "React,SCSS,JS,Node Express",
     device: "pc,Mobile(반응형,PWA App)",
     period: "3주",
-    img: "onetrip.png",
-    width: "60%",
-    transform: "translatey(50px)",
+    img: "onetrip1.png",
     detailImg: "onetrip_pull.png",
     Deploy: "vercel,cloudtype",
     page: "메인1 ,서브6",
     contribution: "30%",
     note: "풀스택 프로젝트",
     frontServer: "https://one-trip.vercel.app/",
-    backServer: "https://port-0-onetrip-server-nx562olfc8wgdo.sel3.cloudtype.app/products",
+    backServer:
+      "https://port-0-onetrip-server-nx562olfc8wgdo.sel3.cloudtype.app/products",
     frontGit: "https://github.com/kimminjung96/OneTrip",
     backGit: "https://github.com/Youngjung3/onetrip_server",
     proposal: "onetrip.pdf",
@@ -34,8 +42,6 @@ const contentItem = [
     device: "pc,Mobile(반응형,PWA App)",
     period: "4일",
     img: "yuseong.png",
-    width: "100%",
-    transform: "translatey(50px)",
     detailImg: "yuseong_pull.png",
     Deploy: "깃허브",
     page: "메인1",
@@ -55,8 +61,6 @@ const contentItem = [
     device: "pc,Mobile(반응형,PWA App)",
     period: "3주",
     img: "yorijori.png",
-    width: "100%",
-    transform: "translatey(0px)",
     detailImg: "yorijori_pull.png",
     Deploy: "깃허브",
     page: "메인1,서브1",
@@ -76,8 +80,6 @@ const contentItem = [
     device: "pc,Mobile(반응형,PWA App)",
     period: "3주",
     img: "yuseong.png",
-    width: "100%",
-    transform: "translatey(50px)",
     detailImg: "yuseong_pull.png",
     Deploy: "깃허브",
     page: "메인1",
@@ -127,12 +129,22 @@ const Project = () => {
             contentItem.map((data) => {
               return (
                 <Box key={data.id}>
-                  <Wrapper className="hover" onClick={() => onSetIsVisible(data)}>
+                  <Wrapper
+                    className="hover"
+                    onClick={() => onSetIsVisible(data)}
+                  >
                     <ModalFont className="projectSub">{data.title2}</ModalFont>
                     <ModalFont className="projectText">{data.title}</ModalFont>
-                    <Image width={`${data.width}`} transform={`${data.transform}`} src={`/images/project/${data.img}`} />
+                    <Image width={`70%`} src={`/images/project/${data.img}`} />
                   </Wrapper>
-                  <div>{isVisible && <Modal data={modalVisibleId} onSetIsVisible={onSetIsVisible} />}</div>
+                  <div>
+                    {isVisible && (
+                      <Modal
+                        data={modalVisibleId}
+                        onSetIsVisible={onSetIsVisible}
+                      />
+                    )}
+                  </div>
                 </Box>
               );
             })}

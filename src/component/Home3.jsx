@@ -88,7 +88,6 @@ const Myprofile = styled(Wrapper)`
   }
 `;
 const MyImg = styled(Image)`
-  transform: translateZ(70px);
   transition: ${(props) => props.transition || `filter 0.03s`};
 `;
 

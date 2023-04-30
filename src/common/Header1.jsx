@@ -2,68 +2,129 @@ import styled from "styled-components";
 import { LayOut, Wrapper } from "./style";
 import { useCallback, useEffect, useRef, useState } from "react";
 import Lottie from "./Lottie";
+import { Link } from "react-scroll";
+import Theme from "../common/Theme";
 
-const HeadLink = styled.p`
-  border: none;
+const HeadLink = styled.div`
   font-size: 20px;
-  padding: 10px 16px;
-  color: #333;
-  transition: all 0.9s, color 0.3;
-  background: ${(props) => props.bgColor || `transparent`};
+  color: ${Theme.grey3_C};
+  font-weight: 500;
+  transition: all 0.5s;
+  background-color: ${(props) => props.bgColor || `transparent`};
+
+  & a {
+    text-align: center;
+    display: block;
+    padding: 10px 0px;
+    margin: 0 16px;
+    width: 100%;
+    position: relative;
+    overflow: hidden;
+
+    /* &::before {
+      width: 100%;
+      height: 2px;
+      content: "";
+      position: absolute;
+      top: 0;
+      left: -100%;
+      left: translateX(-100%);
+      background-color: ${Theme.basic_C};
+      transition: left 0.3s;
+    }
+    &::after {
+      width: 100%;
+      height: 2px;
+      content: "";
+      position: absolute;
+      bottom: 0;
+      left: 100%;
+      background-color: ${Theme.basic_C};
+      transition: left 0.3s;
+    } */
+  }
+  .active {
+    color: ${Theme.basic_C};
+    ::after {
+      left: 0%;
+    }
+    ::before {
+      left: 0%;
+    }
+  }
 
   &:hover {
-    color: #5956e9;
+    color: ${Theme.basic_C};
   }
 `;
 
 const HeaerWrap = styled(Wrapper)`
-  height: 44px;
-  position: flex;
+  height: 100px;
+  position: ${(props) => props.isscroll || `absolute`};
   top: 0;
-  display: flex;
   justify-content: center;
   align-items: center;
   z-index: 999;
 
-  &.sticky {
-    position: sticky;
-  }
+  transition: 0.5s ease all;
+
+  ${(props) =>
+    props.isscroll &&
+    `
+  position: fixed;
+  background-color: rgb(255 255 255 / 0.2);
+  backdrop-filter: blur(10px);
+  `}
 `;
 
 const Header = () => {
-  const [isAnimated, setIsAnimated] = useState(false);
+  const [pageY, setPageY] = useState(0);
+  const [headerScroll, setHeaderScroll] = useState(false);
 
-  const scrollHandler = useCallback(() => {
-    const currentPosition = window.pageYOffset + window.innerHeight;
-    if (!isAnimated && currentPosition >= 0) {
-      setIsAnimated(true);
-    }
-  }, []);
-  
-  window.addEventListener('scroll',scrollHandler)
+  const scrollEvent = useCallback(() => {
+    const { pageYOffset } = window;
+    const headerScroll =
+      (pageY && pageYOffset !== 0 && pageYOffset !== pageY) ||
+      pageYOffset !== 0;
+    setHeaderScroll(headerScroll);
+    setPageY(pageYOffset);
+  }, [pageY]);
 
   useEffect(() => {
-    window.addEventListener("scroll", function () {
-      let winSct = window.scrollY;
-      const header = document.querySelector(".header");
-      if (winSct >= 1) {
-        header.classList.add("active");
-      } else {
-        header.classList.remove("active");
-      }
-    });
-  }, []);
+    const scrollHeader = document.addEventListener("scroll", scrollEvent);
+    return () => scrollHeader;
+  }, [scrollEvent]);
 
   return (
-    <HeaerWrap className="header">
+    <HeaerWrap isscroll={headerScroll}>
       <LayOut dr={`row`} ju={`space-between`} padding={`0`}>
         <Lottie />
         <Wrapper dr={`row`} width={`auto`}>
-          <HeadLink>HOME</HeadLink>
-          <HeadLink>ABOUT</HeadLink>
-          <HeadLink>SKILLS</HeadLink>
-          <HeadLink>PROJECT</HeadLink>
-          <HeadLink>CONTACT</HeadLink>
+          <HeadLink>
+            <Link to="HOME" spy={true} smooth={true}>
+              HOME
+            </Link>
+          </HeadLink>
+          <HeadLink>
+            <Link to="ABOUT" spy={true} smooth={true}>
+              ABOUT
+            </Link>
+          </HeadLink>
+          <HeadLink>
+            <Link to="PROJECT" spy={true} smooth={true}>
+              PROJECT
+            </Link>
+          </HeadLink>
+          <HeadLink>
+            <Link to="SKILLS" spy={true} smooth={true}>
+              SKILLS
+            </Link>
+          </HeadLink>
+          <HeadLink>
+            <Link to="CONTACT" spy={true} smooth={true}>
+              CONTACT
+            </Link>
+          </HeadLink>
         </Wrapper>
       </LayOut>
     </HeaerWrap>

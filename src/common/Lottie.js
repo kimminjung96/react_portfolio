@@ -27,10 +27,6 @@ const Lottie = () => {
           zIndex: 2,
         }}
       ></div>
-      {/* <div
-        ref={blob1}
-        style={{ width: 60, position: "absolute", left: "-10px", top: "-30px" }}
-      ></div> */}
 
       <h1>
         <Image
@@ -42,7 +38,6 @@ const Lottie = () => {
             width: 20,
             left: "29px",
             bottom: "-70%",
-            /* transform: "translateY(-50%)", */
           }}
         />
       </h1>

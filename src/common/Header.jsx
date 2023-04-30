@@ -2,37 +2,78 @@ import styled from "styled-components";
 import { LayOut, Wrapper } from "./style";
 import { useCallback, useEffect, useRef, useState } from "react";
 import Lottie from "./Lottie";
-/* import { NavLink, Route } from "react-router-dom";
- */
-const HeadLink = styled.a`
-  border: none;
+import { Link } from "react-scroll";
+import Theme from "../common/Theme";
+
+const HeadLink = styled.div`
   font-size: 20px;
-  padding: 10px 16px;
-  color: ${(props) => props.theme.grey2_C};
-  transition: all 0.9s, color 0.3;
-  background: ${(props) => props.bgColor || `transparent`};
+  color: ${Theme.grey3_C};
+  font-weight: 500;
+  transition: all 0.5s;
+  background-color: ${(props) => props.bgColor || `transparent`};
+
+  & a {
+    text-align: center;
+    display: block;
+    padding: 10px 0px;
+    margin: 0 16px;
+    width: 100%;
+    position: relative;
+    overflow: hidden;
+
+    /* &::before {
+      width: 100%;
+      height: 2px;
+      content: "";
+      position: absolute;
+      top: 0;
+      left: -100%;
+      left: translateX(-100%);
+      background-color: ${Theme.basic_C};
+      transition: left 0.3s;
+    }
+    &::after {
+      width: 100%;
+      height: 2px;
+      content: "";
+      position: absolute;
+      bottom: 0;
+      left: 100%;
+      background-color: ${Theme.basic_C};
+      transition: left 0.3s;
+    } */
+  }
+  .active {
+    color: ${Theme.basic_C};
+    ::after {
+      left: 0%;
+    }
+    ::before {
+      left: 0%;
+    }
+  }
 
   &:hover {
-    color: ${(props) => props.theme.basic_C};
+    color: ${Theme.basic_C};
   }
 `;
 
 const HeaerWrap = styled(Wrapper)`
   height: 100px;
-  position: ${(props) => props.isscroll || `absolute`};
+  position: ${(props) => props.isscroll || `fixed`};
   top: 0;
   justify-content: center;
   align-items: center;
   z-index: 999;
-  /* padding-top: 32px;
-  top: -32px; */
+
   transition: 0.5s ease all;
 
   ${(props) =>
     props.isscroll &&
     `
   position: fixed;
-  background-color:#fff;
+  background-color: rgb(255 255 255 / 0.2);
+  backdrop-filter: blur(10px);
   `}
 `;
 
@@ -42,7 +83,9 @@ const Header = () => {
 
   const scrollEvent = useCallback(() => {
     const { pageYOffset } = window;
-    const headerScroll = (pageY && pageYOffset !== 0 && pageYOffset !== pageY) || pageYOffset !== 0;
+    const headerScroll =
+      (pageY && pageYOffset !== 0 && pageYOffset !== pageY) ||
+      pageYOffset !== 0;
     setHeaderScroll(headerScroll);
     setPageY(pageYOffset);
   }, [pageY]);
@@ -57,11 +100,31 @@ const Header = () => {
       <LayOut dr={`row`} ju={`space-between`} padding={`0`}>
         <Lottie />
         <Wrapper dr={`row`} width={`auto`}>
-          <HeadLink href="#HOME">HOME</HeadLink>
-          <HeadLink href="#ABOUT">ABOUT</HeadLink>
-          <HeadLink href="#PROJECT">PROJECT</HeadLink>
-          <HeadLink href="#SKILLS">SKILLS</HeadLink>
-          <HeadLink href="#CONTACT">CONTACT</HeadLink>
+          <HeadLink>
+            <Link to="HOME" spy={true} smooth={true}>
+              HOME
+            </Link>
+          </HeadLink>
+          <HeadLink>
+            <Link to="ABOUT" spy={true} smooth={true}>
+              ABOUT
+            </Link>
+          </HeadLink>
+          <HeadLink>
+            <Link to="PROJECT" spy={true} smooth={true}>
+              PROJECT
+            </Link>
+          </HeadLink>
+          <HeadLink>
+            <Link to="SKILLS" spy={true} smooth={true}>
+              SKILLS
+            </Link>
+          </HeadLink>
+          <HeadLink>
+            <Link to="CONTACT" spy={true} smooth={true}>
+              CONTACT
+            </Link>
+          </HeadLink>
         </Wrapper>
       </LayOut>
     </HeaerWrap>
