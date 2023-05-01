@@ -1,7 +1,7 @@
 import styled from "styled-components";
-import { LayOut, Wrapper } from "./style";
+import { LayOut, Wrapper } from "../common/style";
 import { useCallback, useEffect, useRef, useState } from "react";
-import Lottie from "./Lottie";
+import Lottie from "../common/Lottie";
 import { Link } from "react-scroll";
 import Theme from "../common/Theme";
 

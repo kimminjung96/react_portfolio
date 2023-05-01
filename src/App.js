@@ -1,6 +1,6 @@
 import "./App.css";
 import GlobalStyles from "./common/GlobalStyles";
-import Header from "./common/Header";
+import Header from "./component/Header";
 import Contact from "./component/Contact";
 import Skill from "./component/Skill";
 import Home from "./component/Home";

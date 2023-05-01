@@ -1,5 +1,6 @@
 export default {
   basic_C: "#5956e9",
+  basic2_C: "#2522ba",
 
   sub_C: "#31A5F0",
   sub2_C: "#106BDC",

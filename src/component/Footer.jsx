@@ -1,10 +1,10 @@
-import {  Text, Wrapper } from "../common/style";
+import { Text, Wrapper } from "../common/style";
 
 const Footer = () => {
   return (
     <>
-      <Wrapper padding={`50px 0`}>
-        <Text>&copy; 2023. All rights reserved by MJ</Text>
+      <Wrapper padding={`0 0 50px`}>
+        <Text>&copy; 2023 by MJ. All rights reserved.</Text>
       </Wrapper>
     </>
   );
