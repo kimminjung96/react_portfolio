@@ -99,7 +99,6 @@ const Skill = () => {
         {/* </Slide> */}
         <Wrapper dr={`row`} ju={`space-between`}>
           {contentItem.map((data, idx) => {
-            console.log(data.num);
             return (
               <Wrapper
                 key={idx}

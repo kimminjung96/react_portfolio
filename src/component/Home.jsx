@@ -163,7 +163,7 @@ const Home = () => {
                 </a>
               </Btn>
               <Btn>
-                <a href="https://github.com/kimminjung96" target="_blank">
+                <a href="https://github.com/kimminjung96/" target="_blank">
                   깃허브 바로가기
                 </a>
               </Btn>

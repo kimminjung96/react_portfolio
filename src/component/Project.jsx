@@ -1,21 +1,12 @@
 import { useState } from "react";
 import styled from "styled-components";
-import {
-  Box,
-  Image,
-  LayOut,
-  ModalFont,
-  SectionTitle,
-  SubTitle,
-  Title,
-  Wrapper,
-} from "../common/style";
+import { Box, BoxList, Image, LayOut, ModalFont, ProjectBox, SectionTitle, SubTitle, Text, Title, Wrapper } from "../common/style";
 import Modal from "./Modal";
 import { useEffect } from "react";
 
 const contentItem = [
   {
-    id: 1,
+    id: "01",
     title: "리엑트 풀스텍 프로젝트",
     title2: "OneTrip",
     tech: "React,SCSS,JS,Node Express",
@@ -28,14 +19,13 @@ const contentItem = [
     contribution: "30%",
     note: "풀스택 프로젝트",
     frontServer: "https://one-trip.vercel.app/",
-    backServer:
-      "https://port-0-onetrip-server-nx562olfc8wgdo.sel3.cloudtype.app/products",
+    backServer: "https://port-0-onetrip-server-nx562olfc8wgdo.sel3.cloudtype.app/products",
     frontGit: "https://github.com/kimminjung96/OneTrip",
     backGit: "https://github.com/Youngjung3/onetrip_server",
     proposal: "onetrip.pdf",
   },
   {
-    id: 2,
+    id: "02",
     title: "리엑트 네이티브 프로젝트",
     title2: "OneTrip App",
     tech: "React,SCSS,JS,Node Express",
@@ -53,8 +43,9 @@ const contentItem = [
     backGit: "",
     proposal: "",
   },
+
   {
-    id: 3,
+    id: "03",
     title: "부트스트랩 프로젝트",
     title2: "YORIJORI",
     tech: "React,SCSS,JS,Node Express",
@@ -73,7 +64,7 @@ const contentItem = [
     proposal: "yorijori.pdf",
   },
   {
-    id: 4,
+    id: "04",
     title: "자바스크립트 프로젝트",
     title2: "유성구 문화관광",
     tech: "HTML,CSS,Javascript",
@@ -91,6 +82,52 @@ const contentItem = [
     backGit: "", //
     proposal: "yuseong.pdf",
   },
+  {
+    id: "05",
+    title: "리액트 프로젝트",
+    title2: "에듀팩토리",
+    tech: "React",
+    device: "pc,Mobile(반응형)",
+    period: "7일",
+    img: "yuseong.png",
+    detailImg: "yuseong_pull.png",
+    Deploy: "포립소프트웨어-aws", //
+    page: "메인및 프론트화면",
+    contribution: "80%",
+    note: "",
+    frontServer: "https://www.edufact.co.kr/",
+    backServer: "", //
+    frontGit: "", //
+    backGit: "", //
+    proposal: "", //
+  },
+  {
+    id: "06",
+    title: "리액트 프로젝트",
+    title2: "한국스마트컨설팅교육원",
+    tech: "React",
+    device: "pc,Mobile(반응형)",
+    period: "3일",
+    img: "yuseong.png",
+    detailImg: "yuseong_pull.png",
+    Deploy: "포립소프트웨어-aws", //
+    page: "메인제외 서브페이지",
+    contribution: "80%",
+    note: "테스트페이지는 map함수를 사용하여 하나의 컴포넌트로 데이터를 연결하였습니다.",
+    frontServer: "https://scaedu.co.kr/",
+    backServer: "", //
+    frontGit: "", //
+    backGit: "", //
+    proposal: "", //
+  },
+];
+const contentItem2 = [
+  { name: "인천시 제로웨이스트샵", img: "project01.png", link: "https://www.incheonzerowaste.com/" },
+  { name: "네비티아이", img: "project02.png", link: "https://navititest.com/" },
+  { name: "Lisnup", img: "project03.png", link: "https://lisnup.me/" },
+  { name: "AVA", img: "project04.png", link: "https://avakorea.kr/accessory/type?type=nozzle" },
+  { name: "고깃리88", img: "project05.png", link: "https://xn--88-oc2iz9bkz2at6d262a.com/" },
+  { name: "쭈꾸미게임", img: "project06.png", link: "https://jmwgame.com/" },
 ];
 
 const Project = () => {
@@ -129,26 +166,32 @@ const Project = () => {
             contentItem.map((data) => {
               return (
                 <Box key={data.id}>
-                  <Wrapper
-                    className="hover"
-                    onClick={() => onSetIsVisible(data)}
-                  >
+                  <Wrapper className="hover" onClick={() => onSetIsVisible(data)}>
                     <ModalFont className="projectSub">{data.title2}</ModalFont>
                     <ModalFont className="projectText">{data.title}</ModalFont>
                     <Image width={`70%`} src={`/images/project/${data.img}`} />
                   </Wrapper>
-                  <div>
-                    {isVisible && (
-                      <Modal
-                        data={modalVisibleId}
-                        onSetIsVisible={onSetIsVisible}
-                      />
-                    )}
-                  </div>
+                  <div>{isVisible && <Modal data={modalVisibleId} onSetIsVisible={onSetIsVisible} />}</div>
                 </Box>
               );
             })}
         </Wrapper>
+        <Box width={`100%`} margin={`0`}>
+          <Text>실무 리엑트 프로젝트</Text>
+          <Wrapper dr={`row`} al={`flex-start`} ju={`flex-start`}>
+            {contentItem2 &&
+              contentItem2.map((data, idx) => {
+                return (
+                  <BoxList>
+                    <Wrapper height={`250px`} radius={`20px`} key={idx} overflow={`hidden`}>
+                      <Image src={`/images/project/${data.img}`} />
+                    </Wrapper>
+                    <Text padding={`10px 0`}>{data.name}</Text>
+                  </BoxList>
+                );
+              })}
+          </Wrapper>
+        </Box>
       </LayOut>
     </Wrapper>
   );
