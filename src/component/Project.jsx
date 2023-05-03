@@ -7,7 +7,7 @@ import { useEffect } from "react";
 const contentItem = [
   {
     id: "01",
-    title: "리엑트 풀스텍 프로젝트",
+    title: "리액트 풀스텍 프로젝트",
     title2: "OneTrip",
     tech: "React,SCSS,JS,Node Express",
     device: "pc,Mobile(반응형,PWA App)",
@@ -26,7 +26,7 @@ const contentItem = [
   },
   {
     id: "02",
-    title: "리엑트 네이티브 프로젝트",
+    title: "리액트 네이티브 프로젝트",
     title2: "OneTrip App",
     tech: "React,SCSS,JS,Node Express",
     device: "pc,Mobile(반응형,PWA App)",
@@ -36,7 +36,7 @@ const contentItem = [
     Deploy: "깃허브",
     page: "메인1",
     contribution: "30%",
-    note: "리엑트네이티브앱",
+    note: "리액트네이티브앱",
     frontServer: "",
     backServer: "",
     frontGit: "",
@@ -167,8 +167,10 @@ const Project = () => {
               return (
                 <Box key={data.id}>
                   <Wrapper className="hover" onClick={() => onSetIsVisible(data)}>
-                    <ModalFont className="projectSub">{data.title2}</ModalFont>
-                    <ModalFont className="projectText">{data.title}</ModalFont>
+                    <ModalFont>{data.title2}</ModalFont>
+                    <ModalFont color={`#292930`} fontSize={`48px`} marginBottom={`30px`}>
+                      {data.title}
+                    </ModalFont>
                     <Image width={`70%`} src={`/images/project/${data.img}`} />
                   </Wrapper>
                   <div>{isVisible && <Modal data={modalVisibleId} onSetIsVisible={onSetIsVisible} />}</div>
@@ -177,13 +179,15 @@ const Project = () => {
             })}
         </Wrapper>
         <Box width={`100%`} margin={`0`}>
-          <Text>실무 리엑트 프로젝트</Text>
+          <ModalFont color={`#292930`} fontSize={`48px`} marginBottom={`30px`}>
+            실무 리액트 프로젝트
+          </ModalFont>
           <Wrapper dr={`row`} al={`flex-start`} ju={`flex-start`}>
             {contentItem2 &&
               contentItem2.map((data, idx) => {
                 return (
                   <BoxList>
-                    <Wrapper height={`250px`} radius={`20px`} key={idx} overflow={`hidden`}>
+                    <Wrapper height={`250px`} radius={`20px`} key={idx} overflow={`hidden`} onClick={()=>window.open(`${data.link}`)}>
                       <Image src={`/images/project/${data.img}`} />
                     </Wrapper>
                     <Text padding={`10px 0`}>{data.name}</Text>

@@ -439,6 +439,11 @@ export const Btn = styled.button`
   }
 
   & a {
+    height: 100%;
+    width: 100%;
+    align-items: center;
+    justify-content: center;
+    display: flex;
     position: absolute;
     color: ${Theme.white_C};
     top: 50%;
@@ -509,23 +514,13 @@ export const BoxList = styled(Wrapper)`
 `;
 
 export const ModalFont = styled(Text)`
-  &.projectSub {
-    word-break: break-word;
-    width: 100%;
-    text-align: ${(props) => props.textAlign || `left`};
-    color: ${(props) => props.color || `#525260`};
-    font-size: ${(props) => props.fontSize || `18px`};
-    font-weight: ${(props) => props.fontWeight || `500`};
-    margin-bottom: ${(props) => props.marginBottom || `16px`};
-  }
-  &.projectText {
-    width: 100%;
-    text-align: ${(props) => props.textAlign || `left`};
-    color: ${(props) => props.color || `#292930`};
-    font-size: ${(props) => props.fontSize || `48px`};
-    font-weight: ${(props) => props.fontWeight || `500`};
-    margin-bottom: 30px;
-  }
+  word-break: break-word;
+  width: 100%;
+  text-align: ${(props) => props.textAlign || `left`};
+  color: ${(props) => props.color || `#525260`};
+  font-size: ${(props) => props.fontSize || `18px`};
+  font-weight: ${(props) => props.fontWeight || `500`};
+  margin-bottom: ${(props) => props.marginBottom || `16px`};
 `;
 
 export const ModalText = styled(Text)`

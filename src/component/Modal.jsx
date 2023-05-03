@@ -66,7 +66,7 @@ const Modal = ({ data, onSetIsVisible }) => {
   const width = useWidth();
   const MoveLink = useCallback((url) => {
     window.open(url);
-  });
+  }, []);
 
   return (
     <>
