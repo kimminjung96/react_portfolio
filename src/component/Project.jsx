@@ -1,6 +1,6 @@
 import { useState } from "react";
 import styled from "styled-components";
-import { Box, BoxList, Image, LayOut, ModalFont, ProjectBox, SectionTitle, SubTitle, Text, Title, Wrapper } from "../common/style";
+import { Box, BoxList, Image, LayOut, ModalFont, SectionTitle, SubTitle, Text, Title, Wrapper } from "../common/style";
 import Modal from "./Modal";
 import { useEffect } from "react";
 
@@ -134,13 +134,12 @@ const Project = () => {
   const [modalVisibleId, setModalVisibleId] = useState("");
   const [isVisible, setIsVisible] = useState(false);
   const onSetIsVisible = (id) => {
-    // console.log(id);
     setModalVisibleId(id);
     setIsVisible(!isVisible);
   };
 
   useEffect(() => {
-    if (isVisible == true) {
+    if (isVisible === true) {
       document.body.style.cssText = `
       position: fixed; 
       top: -${window.scrollY}px;
@@ -186,8 +185,8 @@ const Project = () => {
             {contentItem2 &&
               contentItem2.map((data, idx) => {
                 return (
-                  <BoxList>
-                    <Wrapper height={`250px`} radius={`20px`} key={idx} overflow={`hidden`} onClick={()=>window.open(`${data.link}`)}>
+                  <BoxList key={idx}>
+                    <Wrapper height={`250px`} radius={`20px`} key={idx} overflow={`hidden`} onClick={() => window.open(`${data.link}`)}>
                       <Image src={`/images/project/${data.img}`} />
                     </Wrapper>
                     <Text padding={`10px 0`}>{data.name}</Text>
