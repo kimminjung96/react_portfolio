@@ -46,7 +46,7 @@ const BlackWrapper = styled(Wrapper)`
   z-index: 1010;
   background-color: rgba(0, 0, 0, 0.35);
 `;
-const LinkBtn = styled.button`
+export const LinkBtn = styled.button`
   width: ${(props) => props.width || `calc(100% / 2 - 10px)`};
   padding: 14px 0;
   background-color: ${(props) => props.color || Theme.white_C};

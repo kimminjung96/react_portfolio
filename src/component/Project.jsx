@@ -1,13 +1,13 @@
 import { useState } from "react";
 import styled from "styled-components";
 import { Box, BoxList, Image, LayOut, ModalFont, SectionTitle, SubTitle, Text, Title, Wrapper } from "../common/style";
-import Modal from "./Modal";
+import Modal, { LinkBtn } from "./Modal";
 import { useEffect } from "react";
 
 const contentItem = [
   {
     id: "01",
-    title: "리액트 풀스텍 프로젝트",
+    title: "리액트 풀스텍",
     title2: "OneTrip",
     tech: "React,SCSS,JS,Node Express",
     device: "pc,Mobile(반응형,PWA App)",
@@ -26,12 +26,12 @@ const contentItem = [
   },
   {
     id: "02",
-    title: "리액트 네이티브 프로젝트",
+    title: "리액트 네이티브",
     title2: "OneTrip App",
     tech: "React,SCSS,JS,Node Express",
     device: "pc,Mobile(반응형,PWA App)",
     period: "4일",
-    img: "yuseong.png",
+    img: "onetrip_app2.png",
     detailImg: "yuseong_pull.png",
     Deploy: "깃허브",
     page: "메인1",
@@ -46,7 +46,7 @@ const contentItem = [
 
   {
     id: "03",
-    title: "부트스트랩 프로젝트",
+    title: "부트스트랩",
     title2: "YORIJORI",
     tech: "React,SCSS,JS,Node Express",
     device: "pc,Mobile(반응형,PWA App)",
@@ -65,7 +65,7 @@ const contentItem = [
   },
   {
     id: "04",
-    title: "자바스크립트 프로젝트",
+    title: "자바스크립트",
     title2: "유성구 문화관광",
     tech: "HTML,CSS,Javascript",
     device: "pc,Mobile(반응형,PWA App)",
@@ -82,9 +82,9 @@ const contentItem = [
     backGit: "", //
     proposal: "yuseong.pdf",
   },
-  {
+  /* {
     id: "05",
-    title: "리액트 프로젝트",
+    title: "리액트",
     title2: "에듀팩토리",
     tech: "React",
     device: "pc,Mobile(반응형)",
@@ -103,7 +103,7 @@ const contentItem = [
   },
   {
     id: "06",
-    title: "리액트 프로젝트",
+    title: "리액트",
     title2: "한국스마트컨설팅교육원",
     tech: "React",
     device: "pc,Mobile(반응형)",
@@ -119,9 +119,11 @@ const contentItem = [
     frontGit: "", //
     backGit: "", //
     proposal: "", //
-  },
+  }, */
 ];
 const contentItem2 = [
+  { name: "에듀팩토리", img: "project01.png", link: "https://www.edufact.co.kr/" },
+  { name: "한국스마트컨설팅교육원", img: "project01.png", link: "https://scaedu.co.kr/" },
   { name: "인천시 제로웨이스트샵", img: "project01.png", link: "https://www.incheonzerowaste.com/" },
   { name: "네비티아이", img: "project02.png", link: "https://navititest.com/" },
   { name: "Lisnup", img: "project03.png", link: "https://lisnup.me/" },
@@ -162,19 +164,34 @@ const Project = () => {
         {/* <Slide className="width100"></Slide> */}
         <Wrapper dr={`row`} ju={`space-between`} margin={`30px 0 0`}>
           {contentItem &&
-            contentItem.map((data) => {
-              return (
-                <Box key={data.id}>
+            contentItem.map((data, idx) => {
+              if (idx === 1) {
+                return (
+                  <Box key={data.id}>
                   <Wrapper className="hover" onClick={() => onSetIsVisible(data)}>
-                    <ModalFont>{data.title2}</ModalFont>
+                    <ModalFont>{data.tech}</ModalFont>
                     <ModalFont color={`#292930`} fontSize={`48px`} marginBottom={`30px`}>
                       {data.title}
                     </ModalFont>
-                    <Image width={`70%`} src={`/images/project/${data.img}`} />
+                    <Image width={`30%`} src={`/images/project/${data.img}`} />
                   </Wrapper>
                   <div>{isVisible && <Modal data={modalVisibleId} onSetIsVisible={onSetIsVisible} />}</div>
                 </Box>
-              );
+                );
+              } else {
+                return (
+                  <Box key={data.id}>
+                    <Wrapper className="hover" onClick={() => onSetIsVisible(data)}>
+                      <ModalFont>{data.tech}</ModalFont>
+                      <ModalFont color={`#292930`} fontSize={`48px`} marginBottom={`30px`}>
+                        {data.title}
+                      </ModalFont>
+                      <Image width={`70%`} src={`/images/project/${data.img}`} />
+                    </Wrapper>
+                    <div>{isVisible && <Modal data={modalVisibleId} onSetIsVisible={onSetIsVisible} />}</div>
+                  </Box>
+                );
+              }
             })}
         </Wrapper>
         <Box width={`100%`} margin={`0`}>
