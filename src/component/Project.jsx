@@ -122,14 +122,14 @@ const contentItem = [
   }, */
 ];
 const contentItem2 = [
-  { name: "에듀팩토리", img: "project01.png", link: "https://www.edufact.co.kr/" },
-  { name: "한국스마트컨설팅교육원", img: "project01.png", link: "https://scaedu.co.kr/" },
-  { name: "인천시 제로웨이스트샵", img: "project01.png", link: "https://www.incheonzerowaste.com/" },
-  { name: "네비티아이", img: "project02.png", link: "https://navititest.com/" },
-  { name: "Lisnup", img: "project03.png", link: "https://lisnup.me/" },
-  { name: "AVA", img: "project04.png", link: "https://avakorea.kr/accessory/type?type=nozzle" },
-  { name: "고깃리88", img: "project05.png", link: "https://xn--88-oc2iz9bkz2at6d262a.com/" },
-  { name: "쭈꾸미게임", img: "project06.png", link: "https://jmwgame.com/" },
+  { name: "에듀팩토리", img: "01.png", link: "https://www.edufact.co.kr/" },
+  { name: "한국스마트컨설팅교육원", img: "02.png", link: "https://scaedu.co.kr/" },
+  { name: "인천시 제로웨이스트샵", img: "03.png", link: "https://www.incheonzerowaste.com/" },
+  { name: "네비티아이", img: "04.png", link: "https://navititest.com/" },
+  { name: "Lisnup", img: "05.png", link: "https://lisnup.me/" },
+  { name: "AVA", img: "06.png", link: "https://avakorea.kr/accessory/type?type=nozzle" },
+  { name: "고깃리88", img: "07.png", link: "https://xn--88-oc2iz9bkz2at6d262a.com/" },
+  { name: "잡24", img: "08.png", link: "https://job24.co.kr/" },
 ];
 
 const Project = () => {
