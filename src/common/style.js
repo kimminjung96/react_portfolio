@@ -496,7 +496,7 @@ export const Btn = styled.button`
 
 export const Box = styled.div`
   width: ${(props) => props.width || ` calc(100% / 2 - 40px)`};
-  min-height: 530px;
+  min-height: ${(props) => props.height ||`530px`};
   overflow: hidden;
   background: ${(props) => props.bgColor || `#ecf2f6`};
   font-family: "Pretendar";

@@ -58,7 +58,7 @@ function Number({ n }) {
   const { number } = useSpring({
     from: { number: 0 },
     number: n,
-    delay: 800,
+    delay: 500,
     config: { mass: 1, tension: 30, friction: 26 },
   });
   return (
