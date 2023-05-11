@@ -122,16 +122,34 @@ const Home = () => {
     config: { mass: 10, tension: 550, friction: 140 },
   }));
   return (
-    <MainWrapper id="HOME" overflow={`hidden`} onMouseMove={({ clientX: x, clientY: y }) => set({ xy: calc(x, y) })}>
+    <MainWrapper
+      id="HOME"
+      overflow={`hidden`}
+      onMouseMove={({ clientX: x, clientY: y }) => set({ xy: calc(x, y) })}
+    >
       <LayOut>
         <Wrapper dr={`row`} ju={width < 700 ? `center` : "space-between"}>
-          <Wrapper al={width < 700 ? `center` : `left`} width={width < 700 ? `100%` : `auto`}>
+          <Wrapper
+            al={width < 700 ? `center` : `left`}
+            width={width < 700 ? `100%` : `auto`}
+          >
             <Title fontWeight={`700`}>npm i minjung</Title>
             <Slogan>
-              <Text D2={true} display={`inline-block`} fontSize={`96px`} className="font96">
+              <Text
+                D2={true}
+                display={`inline-block`}
+                fontSize={`96px`}
+                className="font96"
+              >
                 Npm
               </Text>
-              <Text D2={true} display={`inline-block`} margin={`0 20px`} fontSize={`96px`} className="font96">
+              <Text
+                D2={true}
+                display={`inline-block`}
+                margin={`0 20px`}
+                fontSize={`96px`}
+                className="font96"
+              >
                 run
               </Text>
               <Text display={`inline-block`}>김민정</Text>
@@ -141,7 +159,7 @@ const Home = () => {
             </SubSlogan>
             <Wrapper dr={`row`} ju={`flex-start`}>
               <Btn>
-                <a href="/image/my/resume.pdf" target="_blank">
+                <a href="/images/my/resume.pdf" target="_blank">
                   이력서 바로가기
                 </a>
               </Btn>
@@ -160,11 +178,17 @@ const Home = () => {
 
           <Myprofile>
             <Card>
-              <animated.div className="card1" style={{ transform: props.xy.interpolate(trans2) }} />
+              <animated.div
+                className="card1"
+                style={{ transform: props.xy.interpolate(trans2) }}
+              />
             </Card>
 
             <Card>
-              <animated.div className="card2" style={{ transform: props.xy.interpolate(trans4) }} />
+              <animated.div
+                className="card2"
+                style={{ transform: props.xy.interpolate(trans4) }}
+              />
             </Card>
             {/* <Wrapper
               margin={`50px 0 0`}
