@@ -562,6 +562,7 @@ export const ModalFont = styled(Text)`
   font-size: ${(props) => props.fontSize || `18px`};
   font-weight: ${(props) => props.fontWeight || `500`};
   margin-bottom: ${(props) => props.marginBottom || `16px`};
+  padding: ${(props) => props.padding};
 `;
 
 export const ModalText = styled(Text)`

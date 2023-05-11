@@ -136,7 +136,12 @@ const Modal = ({ data, onSetIsVisible }) => {
                 wrap={`nowrap`}
               >
                 <Wrapper>
-                  <ModalFont className="projectText" position={`relative`}>
+                  <ModalFont
+                    className="projectText"
+                    padding={`0 0 0 20px`}
+                    fontSize={`28px`}
+                    position={`relative`}
+                  >
                     <SpanText
                       position={`absolute`}
                       width={`30px`}
@@ -146,7 +151,7 @@ const Modal = ({ data, onSetIsVisible }) => {
                       left={width < 1100 ? `0px` : `-18px`}
                       top={`-0px`}
                       border={`50%`}
-                      bgColor={`${Theme.basic_C}`}
+                      bgColor={`#5956e9aa`}
                       color={`${Theme.white_C}`}
                       radius={`50%`}
                       lineHeight={`30px`}
@@ -336,7 +341,12 @@ const Modal = ({ data, onSetIsVisible }) => {
                 wrap={`nowrap`}
               >
                 <Wrapper>
-                  <ModalFont className="projectText" position={`relative`}>
+                  <ModalFont
+                    className="projectText"
+                    padding={`0 0 0 20px`}
+                    fontSize={`28px`}
+                    position={`relative`}
+                  >
                     <SpanText
                       position={`absolute`}
                       width={`30px`}
@@ -346,7 +356,7 @@ const Modal = ({ data, onSetIsVisible }) => {
                       left={width < 1100 ? `0px` : `-18px`}
                       top={`-0px`}
                       border={`50%`}
-                      bgColor={`${Theme.basic_C}`}
+                      bgColor={`#5956e9aa`}
                       color={`${Theme.white_C}`}
                       radius={`50%`}
                       lineHeight={`30px`}
