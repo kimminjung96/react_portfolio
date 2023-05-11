@@ -1,6 +1,17 @@
 import { useState } from "react";
 import styled from "styled-components";
-import { Box, BoxList, Image, LayOut, ModalFont, SectionTitle, SubTitle, Text, Title, Wrapper } from "../common/style";
+import {
+  Box,
+  BoxList,
+  Image,
+  LayOut,
+  ModalFont,
+  SectionTitle,
+  SubTitle,
+  Text,
+  Title,
+  Wrapper,
+} from "../common/style";
 import Modal, { LinkBtn } from "./Modal";
 import { useEffect } from "react";
 
@@ -16,10 +27,15 @@ const contentItem = [
     detailImg: "onetrip_pull.png",
     Deploy: "vercel,cloudtype",
     page: "메인1 ,서브6",
-    contribution: "30%",
-    note: "풀스택 프로젝트",
+    contribution: "25% (4인 팀) / 프론트개발담당",
+    note0: "메인화면 구현 및 연동",
+    note1: "상품업로드 기능 구현",
+    note2: "리뷰DB 생성",
+    note3: "리뷰업로드 기능 구현 및 화면 연동",
+    note4: "깃 프론트 관리",
     frontServer: "https://one-trip.vercel.app/",
-    backServer: "https://port-0-onetrip-server-nx562olfc8wgdo.sel3.cloudtype.app/products",
+    backServer:
+      "https://port-0-onetrip-server-nx562olfc8wgdo.sel3.cloudtype.app/products",
     frontGit: "https://github.com/kimminjung96/OneTrip",
     backGit: "https://github.com/Youngjung3/onetrip_server",
     proposal: "onetrip.pdf",
@@ -28,18 +44,22 @@ const contentItem = [
     id: "02",
     title: "리액트 네이티브",
     title2: "OneTrip App",
-    tech: "React,SCSS,JS,Node Express",
-    device: "pc,Mobile(반응형,PWA App)",
+    tech: "React Native",
+    device: "apk",
     period: "4일",
     img: "onetrip_app2.png",
-    detailImg: "yuseong_pull.png",
-    Deploy: "깃허브",
-    page: "메인1",
-    contribution: "30%",
-    note: "리액트네이티브앱",
+    detailImg: "onetrip_app.gif",
+    Deploy: "onetripApp.png",
+    page: "",
+    contribution: "100%",
+    note0: "메인페이지",
+    note1: "상품상세페이지",
+    note2: "품절처리 및 결제메시지 구현",
+    note3: "",
+    note4: "",
     frontServer: "",
     backServer: "",
-    frontGit: "",
+    frontGit: "https://github.com/kimminjung96/onetrip-app",
     backGit: "",
     proposal: "",
   },
@@ -48,15 +68,19 @@ const contentItem = [
     id: "03",
     title: "부트스트랩",
     title2: "YORIJORI",
-    tech: "React,SCSS,JS,Node Express",
-    device: "pc,Mobile(반응형,PWA App)",
-    period: "3주",
+    tech: "Bootstrap,SCSS,JS",
+    device: "pc,Mobile(반응형)",
+    period: "2주",
     img: "yorijori.png",
     detailImg: "yorijori_pull.png",
-    Deploy: "깃허브",
+    Deploy: "Github",
     page: "메인1,서브1",
-    contribution: "30%",
-    note: "https://kimminjung96.github.io/YORIJORI/https://kimminjung96.github.io/YORIJORI/https://kimminjung96.github.io/YORIJORI/https://kimminjung96.github.io/YORIJORI/https://kimminjung96.github.io/YORIJORI/https://kimminjung96.github.io/YORIJORI/https://kimminjung96.github.io/YORIJORI/",
+    contribution: "20% (5인 팀) / 팀장",
+    note0: "깃환경 관리",
+    note1: "전체적 디자인 구성",
+    note2: "메인 슬라이드구현",
+    note3: "",
+    note4: "",
     frontServer: "https://kimminjung96.github.io/YORIJORI/",
     backServer: "",
     frontGit: "https://github.com/kimminjung96/YORIJORI",
@@ -67,68 +91,50 @@ const contentItem = [
     id: "04",
     title: "자바스크립트",
     title2: "유성구 문화관광",
-    tech: "HTML,CSS,Javascript",
-    device: "pc,Mobile(반응형,PWA App)",
+    tech: "HTML,CSS,JS",
+    device: "pc",
     period: "3주",
     img: "yuseong.png",
     detailImg: "yuseong_pull.png",
-    Deploy: "깃허브",
+    Deploy: "Github",
     page: "메인1",
     contribution: "100%",
-    note: "",
+    note0: "구글 애널리틱스 적용",
+    note1: "가로&세로 슬라이드 및 tab버튼 구현",
+    note2: "setcookie함수를 사용하여 팝업을 구현",
+    note3: "scrollTo을 얻어와서 애니메이션 및 top버튼 구현",
+    note4: "",
     frontServer: "https://kimminjung96.github.io/project1/",
     backServer: "", //
     frontGit: "https://github.com/kimminjung96/project1",
     backGit: "", //
     proposal: "yuseong.pdf",
   },
-  /* {
-    id: "05",
-    title: "리액트",
-    title2: "에듀팩토리",
-    tech: "React",
-    device: "pc,Mobile(반응형)",
-    period: "7일",
-    img: "yuseong.png",
-    detailImg: "yuseong_pull.png",
-    Deploy: "포립소프트웨어-aws", //
-    page: "메인및 프론트화면",
-    contribution: "80%",
-    note: "",
-    frontServer: "https://www.edufact.co.kr/",
-    backServer: "", //
-    frontGit: "", //
-    backGit: "", //
-    proposal: "", //
-  },
-  {
-    id: "06",
-    title: "리액트",
-    title2: "한국스마트컨설팅교육원",
-    tech: "React",
-    device: "pc,Mobile(반응형)",
-    period: "3일",
-    img: "yuseong.png",
-    detailImg: "yuseong_pull.png",
-    Deploy: "포립소프트웨어-aws", //
-    page: "메인제외 서브페이지",
-    contribution: "80%",
-    note: "테스트페이지는 map함수를 사용하여 하나의 컴포넌트로 데이터를 연결하였습니다.",
-    frontServer: "https://scaedu.co.kr/",
-    backServer: "", //
-    frontGit: "", //
-    backGit: "", //
-    proposal: "", //
-  }, */
 ];
 const contentItem2 = [
   { name: "에듀팩토리", img: "01.png", link: "https://www.edufact.co.kr/" },
-  { name: "한국스마트컨설팅교육원", img: "02.png", link: "https://scaedu.co.kr/" },
-  { name: "인천시 제로웨이스트샵", img: "03.png", link: "https://www.incheonzerowaste.com/" },
+  {
+    name: "한국스마트컨설팅교육원",
+    img: "02.png",
+    link: "https://scaedu.co.kr/",
+  },
+  {
+    name: "인천시 제로웨이스트샵",
+    img: "03.png",
+    link: "https://www.incheonzerowaste.com/",
+  },
   { name: "네비티아이", img: "04.png", link: "https://navititest.com/" },
   { name: "Lisnup", img: "05.png", link: "https://lisnup.me/" },
-  { name: "AVA", img: "06.png", link: "https://avakorea.kr/accessory/type?type=nozzle" },
-  { name: "고깃리88", img: "07.png", link: "https://xn--88-oc2iz9bkz2at6d262a.com/" },
+  {
+    name: "AVA",
+    img: "06.png",
+    link: "https://avakorea.kr/accessory/type?type=nozzle",
+  },
+  {
+    name: "고깃리88",
+    img: "07.png",
+    link: "https://xn--88-oc2iz9bkz2at6d262a.com/",
+  },
   { name: "잡24", img: "08.png", link: "https://job24.co.kr/" },
 ];
 
@@ -168,27 +174,61 @@ const Project = () => {
               if (idx === 1) {
                 return (
                   <Box key={data.id}>
-                  <Wrapper className="hover" onClick={() => onSetIsVisible(data)}>
-                    <ModalFont>{data.tech}</ModalFont>
-                    <ModalFont color={`#292930`} fontSize={`48px`} marginBottom={`30px`}>
-                      {data.title}
-                    </ModalFont>
-                    <Image width={`30%`} src={`/images/project/${data.img}`} />
-                  </Wrapper>
-                  <div>{isVisible && <Modal data={modalVisibleId} onSetIsVisible={onSetIsVisible} />}</div>
-                </Box>
+                    <Wrapper
+                      className="hover"
+                      onClick={() => onSetIsVisible(data)}
+                    >
+                      <ModalFont>{data.tech}</ModalFont>
+                      <ModalFont
+                        color={`#292930`}
+                        fontSize={`48px`}
+                        marginBottom={`30px`}
+                      >
+                        {data.title}
+                      </ModalFont>
+                      <Image
+                        width={`30%`}
+                        src={`/images/project/${data.img}`}
+                      />
+                    </Wrapper>
+                    <div>
+                      {isVisible && (
+                        <Modal
+                          data={modalVisibleId}
+                          onSetIsVisible={onSetIsVisible}
+                        />
+                      )}
+                    </div>
+                  </Box>
                 );
               } else {
                 return (
                   <Box key={data.id}>
-                    <Wrapper className="hover" onClick={() => onSetIsVisible(data)}>
+                    <Wrapper
+                      className="hover"
+                      onClick={() => onSetIsVisible(data)}
+                    >
                       <ModalFont>{data.tech}</ModalFont>
-                      <ModalFont color={`#292930`} fontSize={`48px`} marginBottom={`30px`}>
+                      <ModalFont
+                        color={`#292930`}
+                        fontSize={`48px`}
+                        marginBottom={`30px`}
+                      >
                         {data.title}
                       </ModalFont>
-                      <Image width={`70%`} src={`/images/project/${data.img}`} />
+                      <Image
+                        width={`70%`}
+                        src={`/images/project/${data.img}`}
+                      />
                     </Wrapper>
-                    <div>{isVisible && <Modal data={modalVisibleId} onSetIsVisible={onSetIsVisible} />}</div>
+                    <div>
+                      {isVisible && (
+                        <Modal
+                          data={modalVisibleId}
+                          onSetIsVisible={onSetIsVisible}
+                        />
+                      )}
+                    </div>
                   </Box>
                 );
               }
@@ -203,8 +243,17 @@ const Project = () => {
               contentItem2.map((data, idx) => {
                 return (
                   <BoxList key={idx}>
-                    <Wrapper height={`250px`} radius={`20px`} key={idx} overflow={`hidden`} onClick={() => window.open(`${data.link}`)}>
-                      <Image src={`/images/project/${data.img}`} />
+                    <Wrapper
+                      ju={`flex-start`}
+                      key={idx}
+                      margin={`0 0 16px`}
+                      overflow={`hidden`}
+                      onClick={() => window.open(`${data.link}`)}
+                    >
+                      <Image
+                        src={`/images/project/${data.img}`}
+                        radius={`20px`}
+                      />
                     </Wrapper>
                     <Text padding={`10px 0`}>{data.name}</Text>
                   </BoxList>

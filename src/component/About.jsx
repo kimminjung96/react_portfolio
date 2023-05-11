@@ -19,19 +19,19 @@ const contentText = [
 ];
 
 const history = [
+  ["Career", "2022.06~2022.09", "4leaf software 웹퍼블리셔"],
+  ["", "2019.01~ 2020.01", "Holiday Inn Hotel F&B"],
   [
     "Education",
     "2022.11~2023.05",
-    "프로젝트기반 프론트엔드 (React,Vue) 웹&앱 SW개발자 양성과정 수료 -그린컴퓨터아카데미-",
+    "프로젝트기반 프론트엔드 (React,Vue) 웹&앱 SW개발자 양성과정 수료 [그린컴퓨터아카데미]",
   ],
   [
     "",
     "2021.06~2021.12",
-    "(디지털디자인)영상을 활용한 웹디자인&웹퍼블리셔 양성과정 수료 -그린컴퓨터아카데미- ",
+    "(디지털디자인)영상을 활용한 웹디자인&웹퍼블리셔 양성과정 수료 [그린컴퓨터아카데미] ",
   ],
   ["", "2021.06~2021.12", "선문대학교 중어중국학과 졸업 "],
-  ["Experience", "2022.06~2022.09", "4leaf software 웹퍼블리셔"],
-  ["", "2019.01~ 2020.01", "Holiday Inn Hotel F&B"],
 ];
 
 const About = () => {
@@ -52,7 +52,7 @@ const About = () => {
             {contentText &&
               contentText.map((data, idx) => {
                 return (
-                  <Wrapper margin={`0 0 20px`} key={idx}>
+                  <Wrapper margin={`0 0 20px`} key={idx} al={`flex-start`}>
                     <Text className="contentText">{data[0]}</Text>
                     <Text className="contentSub">{data[1]}</Text>
                   </Wrapper>
@@ -63,7 +63,7 @@ const About = () => {
             {history &&
               history.map((data, idx) => {
                 return (
-                  <Wrapper margin={`0 0 20px`} key={idx}>
+                  <Wrapper margin={`0 0 20px`} key={idx} al={`flex-start`}>
                     {data[0] && <Text className="contentText">{data[0]}</Text>}
                     <Text className="contentSub">{data[2]}</Text>
                     <Text className="contentDate">{data[1]}</Text>

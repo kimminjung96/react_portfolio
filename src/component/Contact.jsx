@@ -26,7 +26,7 @@ const Contact = () => {
         <LayOut dr={`row`}>
           <Wrapper width={`50%`}>
             <Wrapper>
-              <Title>npm run build</Title>
+              <Title>npm run start</Title>
               <SectionTitle>Let's work together</SectionTitle>
               <SubTitle>
                 같이 일하고 싶은, 모두 같이 일할 수 있는
@@ -36,20 +36,37 @@ const Contact = () => {
             </Wrapper>
             <Image src="/images/my/ming.gif" />
           </Wrapper>
-          <Wrapper width={`50%`}>
-            <Box>
-              <Wrapper margin={`0 0 20px`}>
-                <Text className="contentText">Phone</Text>
-                <Text className="contentSub">010.6530.1591</Text>
+          <Wrapper width={`50%`} margin={`100px 0 0`}>
+            <Wrapper margin={`0 0 50px`}>
+              <Text fontSize={`30px`} color={`#52526088`}>
+                Phone
+              </Text>
+              <Text fontSize={`36px`} color={`#6679a8`}>
+                010.6530.1591
+              </Text>
+            </Wrapper>
+            <Wrapper margin={`0 0 50px`}>
+              <Text fontSize={`30px`} color={`#52526088`}>
+                Email
+              </Text>
+              <Wrapper dr={`row`}>
+                <Text fontSize={`36px`} color={`#6679a8`}>
+                  dds13462@gmail.com
+                </Text>
+                {/* <Wrapper
+                  padding={`0 0 0 10px`}
+                  width={`50px`}
+                  height={`50px`}
+                  cursor={`pointer`}
+                  onClick={() => copy("dds13462@gmail.com")}
+                >
+                  <button>복사</button>
+                </Wrapper> */}
               </Wrapper>
-              <Wrapper margin={`0 0 20px`}>
-                <Text className="contentText">Email</Text>
-                <Text className="contentSub">dds13462@gmail.com</Text>
-                <button onClick={() => copy("dds13462@gmail.com")}>
-                  이메일 복사
-                </button>
-              </Wrapper>
-            </Box>
+            </Wrapper>
+            <Text fontSize={`30px`} color={`#52526088`}>
+              감사합니다.
+            </Text>
           </Wrapper>
         </LayOut>
       </Wrapper>

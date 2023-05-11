@@ -43,9 +43,9 @@ const contentItem = [
     num: 85,
   },
   {
-    title: "sqlite",
-    img: "sqlite.png",
-    num: 85,
+    title: "PHP",
+    img: "php2.png",
+    num: 80,
   },
   {
     title: "figma",
