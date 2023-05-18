@@ -14,6 +14,7 @@ import {
 } from "../common/style";
 import Modal, { LinkBtn } from "./Modal";
 import { useEffect } from "react";
+import Theme from "../common/Theme";
 
 const contentItem = [
   {
@@ -180,7 +181,7 @@ const Project = () => {
                     >
                       <ModalFont>{data.tech}</ModalFont>
                       <ModalFont
-                        color={`#292930`}
+                        color={`${Theme.grey2_C}`}
                         fontSize={`48px`}
                         marginBottom={`30px`}
                       >
@@ -210,7 +211,7 @@ const Project = () => {
                     >
                       <ModalFont>{data.tech}</ModalFont>
                       <ModalFont
-                        color={`#292930`}
+                        color={`${Theme.grey2_C}`}
                         fontSize={`48px`}
                         marginBottom={`30px`}
                       >
@@ -235,7 +236,11 @@ const Project = () => {
             })}
         </Wrapper>
         <Box width={`100%`} margin={`0`}>
-          <ModalFont color={`#292930`} fontSize={`48px`} marginBottom={`30px`}>
+          <ModalFont
+            color={`${Theme.grey2_C}`}
+            fontSize={`48px`}
+            marginBottom={`30px`}
+          >
             실무 리액트 프로젝트
           </ModalFont>
           <Wrapper dr={`row`} al={`flex-start`} ju={`flex-start`}>

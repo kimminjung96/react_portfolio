@@ -114,9 +114,7 @@ const Modal = ({ data, onSetIsVisible }) => {
                 <Wrapper
                   position={`relative`}
                   height={width < 1100 ? `300px` : `100%`}
-                  bgColor={`#000000aa`}
-                  // overflow={`hidden`}
-                  // margin={width < 1100 ? `0 0 20px` : `0 0 60px`}
+                  bgColor={`${Theme.black2_C}`}
                 >
                   <Image
                     position={`absolute`}
@@ -151,7 +149,7 @@ const Modal = ({ data, onSetIsVisible }) => {
                       left={width < 1100 ? `0px` : `-18px`}
                       top={`-0px`}
                       border={`50%`}
-                      bgColor={`#5956e9aa`}
+                      bgColor={`${Theme.basic3_C}`}
                       color={`${Theme.white_C}`}
                       radius={`50%`}
                       lineHeight={`30px`}
@@ -356,7 +354,7 @@ const Modal = ({ data, onSetIsVisible }) => {
                       left={width < 1100 ? `0px` : `-18px`}
                       top={`-0px`}
                       border={`50%`}
-                      bgColor={`#5956e9aa`}
+                      bgColor={`${Theme.basic3_C}`}
                       color={`${Theme.white_C}`}
                       radius={`50%`}
                       lineHeight={`30px`}

@@ -23,7 +23,7 @@ const contentItem = [
     num: 90,
   },
   {
-    title: "Js ",
+    title: "Javascript ",
     img: "js.png",
     num: 90,
   },
@@ -33,12 +33,12 @@ const contentItem = [
     num: 95,
   },
   {
-    title: "vue3",
+    title: "Vue3",
     img: "vue3.png",
     num: 85,
   },
   {
-    title: "node",
+    title: "Node",
     img: "node.png",
     num: 85,
   },
@@ -48,7 +48,7 @@ const contentItem = [
     num: 80,
   },
   {
-    title: "figma",
+    title: "Figma",
     img: "figma.png",
     num: 90,
   },
@@ -86,7 +86,7 @@ const Skill = () => {
   }, [isAnimated]);
 
   return (
-    <Wrapper id="SKILLS" bgColor={`#27272e`}>
+    <Wrapper id="SKILLS" bgColor={`${Theme.grey4_C}`}>
       <LayOut>
         <Title>npm ls</Title>
         <SectionTitle color={`${Theme.white_C}`}>Skills</SectionTitle>
@@ -108,10 +108,19 @@ const Skill = () => {
                 <Wrapper width={`60px`} margin={`20px`}>
                   <Image src={`/images/icon/${data.img}`} />
                 </Wrapper>
-                <Text color={`#ffffff34`} fontSize={`20px`}>
+                <Text
+                  opacity={`0.4`}
+                  color={`${Theme.white_C}`}
+                  fontSize={`18px`}
+                >
                   {data.title}
                 </Text>
-                <Text color={`#fff`} fontSize={`28px`} ref={numberRef}>
+                <Text
+                  color={`${Theme.white_C}`}
+                  fontSize={`28px`}
+                  padding={`14px 0 0`}
+                  ref={numberRef}
+                >
                   {isAnimated && <Number n={data.num} />}%
                 </Text>
               </Wrapper>

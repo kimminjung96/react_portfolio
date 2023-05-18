@@ -43,7 +43,7 @@ const Slogan = styled.h2`
   letter-spacing: -1.5px;
   font-weight: 500;
   margin: 0;
-  color: #27272e;
+  color: ${Theme.grey4_C};
   text-align: left;
   > span {
     margin-right: 20px;

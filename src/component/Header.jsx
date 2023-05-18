@@ -20,28 +20,6 @@ const HeadLink = styled.div`
     width: 100%;
     position: relative;
     overflow: hidden;
-
-    /* &::before {
-      width: 100%;
-      height: 2px;
-      content: "";
-      position: absolute;
-      top: 0;
-      left: -100%;
-      left: translateX(-100%);
-      background-color: ${Theme.basic_C};
-      transition: left 0.3s;
-    }
-    &::after {
-      width: 100%;
-      height: 2px;
-      content: "";
-      position: absolute;
-      bottom: 0;
-      left: 100%;
-      background-color: ${Theme.basic_C};
-      transition: left 0.3s;
-    } */
   }
   .active {
     color: ${Theme.basic_C};

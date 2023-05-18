@@ -1,4 +1,14 @@
-import { Box, Image, LayOut, SectionTitle, SubTitle, Text, Title, Wrapper } from "../common/style";
+import Theme from "../common/Theme";
+import {
+  Box,
+  Image,
+  LayOut,
+  SectionTitle,
+  SubTitle,
+  Text,
+  Title,
+  Wrapper,
+} from "../common/style";
 
 const Contact = () => {
   const copy = (text) => {
@@ -27,22 +37,32 @@ const Contact = () => {
           </Wrapper>
           <Box width={`50%`} height={`350px`} margin={`0`}>
             <Wrapper margin={`0 0 50px`} al={`flex-start`}>
-              <Text fontSize={`24px`} color={`#52526088`}>
+              <Text fontSize={`24px`} color={`${Theme.grey3_C}`}>
                 Phone
               </Text>
-              <Text fontSize={`36px`} color={`#6679a8`} padding={`0 0 0 10px`}>
+              <Text
+                fontSize={`36px`}
+                color={`${Theme.sub3_C}`}
+                padding={`0 0 0 10px`}
+              >
                 010.6530.1591
               </Text>
             </Wrapper>
             <Wrapper al={`flex-start`}>
-              <Text fontSize={`24px`} color={`#52526088`}>
+              <Text fontSize={`24px`} color={`${Theme.grey3_C}`}>
                 Email
               </Text>
               <Wrapper dr={`row`} padding={`0 0 0 10px`} ju={`flex-start`}>
-                <Text fontSize={`36px`} color={`#6679a8`}>
+                <Text fontSize={`36px`} color={`${Theme.sub3_C}`}>
                   dds13462@gmail.com
                 </Text>
-                <Wrapper padding={`0 0 0 10px`} width={`50px`} height={`50px`} cursor={`pointer`} onClick={() => copy("dds13462@gmail.com")}>
+                <Wrapper
+                  padding={`0 0 0 10px`}
+                  width={`50px`}
+                  height={`50px`}
+                  cursor={`pointer`}
+                  onClick={() => copy("dds13462@gmail.com")}
+                >
                   <Image src="/images/icon/link.png" />
                 </Wrapper>
               </Wrapper>
