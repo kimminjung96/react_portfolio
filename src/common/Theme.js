@@ -15,4 +15,6 @@ export default {
   grey2_C: "#292930",
   grey3_C: "#9F9F9F",
   grey4_C: "#27272e",
+  grey5_C: "#525260",
+  grey6_C: "#eeeeee",
 };
