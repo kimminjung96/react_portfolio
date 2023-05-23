@@ -38,7 +38,7 @@ const MainWrapper = styled(Wrapper)`
 const Slogan = styled.h2`
   width: auto;
   font-family: "Pretendard";
-  font-size: 80px;
+  font-size: ${(props) => props.fontSize || `80px`};
   line-height: 1.5;
   letter-spacing: -1.5px;
   font-weight: 500;
@@ -70,13 +70,10 @@ const SubSlogan = styled(Slogan)`
   }
 `;
 const Myprofile = styled(Wrapper)`
-  width: 50%;
+  width: ${(props) => props.width || ` 50%`};
   /* position: relative; */
 `;
-const MyImg1 = styled(Image)`
-  transform: translateZ(70px);
-  transition: ${(props) => props.transition || `filter 0.03s`};
-`;
+
 const MyImg = styled(Image)`
   top: 25%;
   width: 100%;
@@ -134,7 +131,7 @@ const Home = () => {
             width={width < 700 ? `100%` : `auto`}
           >
             <Title fontWeight={`700`}>npm i minjung</Title>
-            <Slogan>
+            <Slogan fontSize={width < 1300 ? `10px` : `40px`}>
               <Text
                 D2={true}
                 display={`inline-block`}
@@ -176,7 +173,7 @@ const Home = () => {
             </Wrapper>
           </Wrapper>
 
-          <Myprofile>
+          <Myprofile width={`100%`}>
             <Card>
               <animated.div
                 className="card1"

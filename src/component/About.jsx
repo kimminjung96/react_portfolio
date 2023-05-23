@@ -1,3 +1,4 @@
+import Theme from "../common/Theme";
 import {
   Box,
   Image,
