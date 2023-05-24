@@ -70,7 +70,7 @@ const SubSlogan = styled(Slogan)`
   }
 `;
 const Myprofile = styled(Wrapper)`
-  width: ${(props) => props.width || ` 50%`};
+  width: ${(props) => props.width || `50%`};
   /* position: relative; */
 `;
 
@@ -131,7 +131,7 @@ const Home = () => {
             width={width < 700 ? `100%` : `auto`}
           >
             <Title fontWeight={`700`}>npm i minjung</Title>
-            <Slogan fontSize={width < 1300 ? `10px` : `40px`}>
+            <Slogan>
               <Text
                 D2={true}
                 display={`inline-block`}
@@ -165,15 +165,10 @@ const Home = () => {
                   깃허브 바로가기
                 </Link>
               </Btn>
-              {/* <Btn>
-                <a href="https://github.com/kimminjung96/" target="_blank">
-                  깃허브 바로가기
-                </a>
-              </Btn> */}
             </Wrapper>
           </Wrapper>
 
-          <Myprofile width={`100%`}>
+          <Myprofile>
             <Card>
               <animated.div
                 className="card1"
