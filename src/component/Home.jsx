@@ -182,26 +182,6 @@ const Home = () => {
                 style={{ transform: props.xy.interpolate(trans4) }}
               />
             </Card>
-            {/* <Wrapper
-              margin={`50px 0 0`}
-              className="floating"
-              width={`80%`}
-              height={`600px`}
-              bgColor={`linear-gradient(180deg, pink, white)`}
-              radius={`48% 48% 0 0`}
-            >
-              <MyImg
-                src="/images/my/01.png"
-                alt="나의 프로필 사진"
-                width={`80%`}
-                position={`absolute`}
-                bottom={`0`}
-                drop={`drop-shadow(${-shadow_x}px ${
-                  shadow_y / 1
-                }px 4px rgba(0, 0, 0, .6))`}
-                transition={`position 0.005s linear;`}
-              />
-            </Wrapper> */}
           </Myprofile>
         </Wrapper>
       </LayOut>
