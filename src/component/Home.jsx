@@ -1,11 +1,28 @@
 import React from "react";
 import { useSpring, animated } from "react-spring";
-import { Btn, Image, LayOut, Text, Title, Wrapper } from "../common/style";
+import {
+  Btn,
+  Image,
+  LayOut,
+  Text,
+  Title,
+  Wrapper,
+  animation,
+} from "../common/style";
 import Theme from "../common/Theme";
 
-import styled from "styled-components";
+import styled, { keyframes } from "styled-components";
 import useWidth from "../common/useWidth";
 import { Link } from "react-router-dom";
+
+const Circle = styled.div`
+  width: 62px;
+  height: 62px;
+  background-color: yellow;
+  border-radius: 100%;
+  animation: ${animation} 2s ease-in-out infinite;
+  animation-duration: 5s;
+`;
 
 const MainWrapper = styled(Wrapper)`
   position: relative;
@@ -71,15 +88,8 @@ const SubSlogan = styled(Slogan)`
 `;
 const Myprofile = styled(Wrapper)`
   width: ${(props) => props.width || `50%`};
-  /* position: relative; */
 `;
 
-const MyImg = styled(Image)`
-  top: 25%;
-  width: 100%;
-  height: 100%;
-  background-image: url("/images/my/01.png");
-`;
 const Card = styled(Wrapper)`
   & .card1 {
     position: absolute;
@@ -125,6 +135,7 @@ const Home = () => {
       onMouseMove={({ clientX: x, clientY: y }) => set({ xy: calc(x, y) })}
     >
       <LayOut>
+        <Circle />
         <Wrapper dr={`row`} ju={width < 700 ? `center` : "space-between"}>
           <Wrapper
             al={width < 700 ? `center` : `left`}

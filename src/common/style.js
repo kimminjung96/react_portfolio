@@ -1,4 +1,4 @@
-import styled from "styled-components";
+import styled, { keyframes } from "styled-components";
 import Theme from "./Theme";
 
 export const WholeWrapper = styled.section`
@@ -496,7 +496,7 @@ export const Btn = styled.button`
 
 export const Box = styled.div`
   width: ${(props) => props.width || ` calc(100% / 2 - 40px)`};
-  min-height: ${(props) => props.height ||`530px`};
+  min-height: ${(props) => props.height || `530px`};
   overflow: hidden;
   background: ${(props) => props.bgColor || `#ecf2f6`};
   font-family: "Pretendar";
@@ -573,6 +573,26 @@ export const ModalText = styled(Text)`
   padding: 16px 0;
   line-height: 1;
   border-bottom: 1px solid #eee;
+`;
+
+export const animation = keyframes`
+
+  0%{
+    transform:translateX(0) translateY(0);
+   
+  }
+  40%{
+    transform:translateX(50px) translateY(-200px);
+   
+  }
+  75%{
+    transform:translateX(800px);
+   
+  }
+  100%{
+    transform:translateY(0) translateX(0);
+   
+  }
 `;
 
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
