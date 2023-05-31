@@ -174,7 +174,7 @@ const Project = () => {
             contentItem.map((data, idx) => {
               if (idx === 1) {
                 return (
-                  <Box key={data.id}>
+                  <Box key={data.id} cursor={`pointer`}>
                     <Wrapper
                       className="hover"
                       onClick={() => onSetIsVisible(data)}
@@ -204,7 +204,7 @@ const Project = () => {
                 );
               } else {
                 return (
-                  <Box key={data.id}>
+                  <Box key={data.id} cursor={`pointer`}>
                     <Wrapper
                       className="hover"
                       onClick={() => onSetIsVisible(data)}
@@ -253,6 +253,7 @@ const Project = () => {
                       key={idx}
                       margin={`0 0 16px`}
                       overflow={`hidden`}
+                      cursor={`pointer`}
                       onClick={() => window.open(`${data.link}`)}
                     >
                       <Image

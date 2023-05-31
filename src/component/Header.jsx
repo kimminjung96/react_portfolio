@@ -33,6 +33,7 @@ const HeadLink = styled.div`
 
   &:hover {
     color: ${Theme.basic_C};
+    cursor: pointer;
   }
 `;
 

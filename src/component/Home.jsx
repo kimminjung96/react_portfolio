@@ -8,6 +8,8 @@ import {
   Title,
   Wrapper,
   animation,
+  animation1,
+  animation2,
 } from "../common/style";
 import Theme from "../common/Theme";
 
@@ -16,12 +18,36 @@ import useWidth from "../common/useWidth";
 import { Link } from "react-router-dom";
 
 const Circle = styled.div`
-  width: 62px;
-  height: 62px;
-  background-color: yellow;
+  width: 20px;
+  height: 20px;
+  background-color: #a495dd;
+  position: absolute;
+  z-index: -100;
   border-radius: 100%;
   animation: ${animation} 2s ease-in-out infinite;
-  animation-duration: 5s;
+  animation-duration: 20s;
+`;
+const Circle1 = styled.div`
+  width: 30px;
+  height: 30px;
+  background-color: #e9b8c9eb;
+  position: absolute;
+  transform: translateX(0px) translateY(200px);
+  z-index: -100;
+  border-radius: 100%;
+  animation: ${animation1} 2s ease-in-out infinite;
+  animation-duration: 20s;
+`;
+const Circle2 = styled.div`
+  width: 60px;
+  height: 60px;
+  background-color: #b4c5e6eb;
+  position: absolute;
+  transform: translateX(-600px) translateY(90px);
+  z-index: -100;
+  border-radius: 100%;
+  animation: ${animation2} 2s ease-in-out infinite;
+  animation-duration: 25s;
 `;
 
 const MainWrapper = styled(Wrapper)`
@@ -111,9 +137,9 @@ const Card = styled(Wrapper)`
     background-repeat: no-repeat;
     will-change: transform;
     width: 30%;
-    height: 95%;
+    height: 80%;
     right: 16.5%;
-    bottom: -60px;
+    bottom: 46px;
     background-image: url(/images/my/01.png);
   }
 `;
@@ -134,8 +160,10 @@ const Home = () => {
       overflow={`hidden`}
       onMouseMove={({ clientX: x, clientY: y }) => set({ xy: calc(x, y) })}
     >
+      <Circle />
+      <Circle1 />
+      <Circle2 />
       <LayOut>
-        <Circle />
         <Wrapper dr={`row`} ju={width < 700 ? `center` : "space-between"}>
           <Wrapper
             al={width < 700 ? `center` : `left`}

@@ -18,6 +18,7 @@ const ModalWrap = styled(Wrapper)`
   height: 70%;
   overflow-y: auto;
   position: fixed;
+  cursor: auto;
   left: 50%;
   top: 50%;
   padding: 80px 40px;
@@ -41,6 +42,7 @@ const ModalLayout = styled(Wrapper)`
   width: 100%;
   height: 100%;
   justify-content: space-between;
+  cursor: auto;
 `;
 
 const BlackWrapper = styled(Wrapper)`
@@ -56,13 +58,19 @@ const BlackWrapper = styled(Wrapper)`
 export const LinkBtn = styled.button`
   width: ${(props) => props.width || `calc(100% / 2 - 10px)`};
   padding: 14px 0;
-  background-color: ${(props) => props.color || Theme.white_C};
+  background-color: ${(props) => props.bgColor || Theme.white_C};
   border-radius: 14px;
   line-height: 1;
-  color: ${Theme.sub2_C};
-  border: 1px solid;
+  color: ${(props) => props.color || Theme.basic_C};
+  border: 1px solid ${Theme.basic_C};
   cursor: pointer;
   margin: 4px 0;
+  transition: all 0.3s;
+
+  &:hover {
+    background-color: ${(props) => props.color || Theme.basic2_C};
+    color: ${Theme.white_C};
+  }
 
   @media (max-width: 900px) {
     width: ${(props) => props.width || `100%`};
@@ -284,6 +292,8 @@ const Modal = ({ data, onSetIsVisible }) => {
                 </Wrapper>
                 <Wrapper dr={`row`} ju={`space-between`}>
                   <LinkBtn
+                    /*  bgColor={`${Theme.basic_C}`}
+                    color={`${Theme.white_C}`} */
                     width={`100%`}
                     onClick={() => {
                       MoveLink(`${data.frontServer}`);

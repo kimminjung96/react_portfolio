@@ -505,6 +505,7 @@ export const Box = styled.div`
   border-radius: 30px;
   align-items: ${(props) => props.al || ` flex-start`};
   box-sizing: border-box;
+  cursor: ${(props) => props.cursor};
 
   & .contentText {
     width: 100%;
@@ -549,6 +550,7 @@ export const BoxList = styled(Wrapper)`
   width: calc(100% / 3 - 20px);
   flex-direction: column;
   margin: 0 30px 30px 0;
+
   &:nth-child(3n) {
     margin-right: 0;
   }
@@ -578,20 +580,46 @@ export const ModalText = styled(Text)`
 export const animation = keyframes`
 
   0%{
-    transform:translateX(0) translateY(0);
-   
+    transform: translateX(-120px) translateY(-260px);
   }
   40%{
-    transform:translateX(50px) translateY(-200px);
-   
+    transform:translateX(160px) translateY(-260px);
   }
   75%{
-    transform:translateX(800px);
-   
+    transform: translateX(200px) translateY(-400px);
   }
   100%{
-    transform:translateY(0) translateX(0);
-   
+    transform: translateX(-120px) translateY(-260px);
+  }
+`;
+export const animation1 = keyframes`
+
+  0%{
+    transform:translateX(-550px) translateY(390px);
+  }
+  40%{
+    transform:translateX(-200px) translateY(390px);
+  }
+  75%{
+    transform:translateX(0px) translateY(200px);
+  }
+  100%{
+    transform:translateX(-550px) translateY(390px);
+  }
+`;
+export const animation2 = keyframes`
+
+  0%{
+  transform: translateX(40px) translateY(90px);
+  }
+  40%{
+    transform:translateX(-600px) translateY(90px);
+  }
+  75%{
+    transform: translateX(-500px) translateY(-200px);
+  }
+  100%{
+  transform: translateX(40px) translateY(90px);
   }
 `;
 
